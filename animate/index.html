@@ -19,8 +19,16 @@
 
         <div class="row">
 
-            <audio id="audio" controls>
+            <audio id="audio-bubbles">
                 <source src="bubbles.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>           
+            <audio id="audio-fish">
+                <source src="baby-laugh.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <audio id="audio-blue-fish">
+                <source src="fart.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
             <button class="btn btn-sm btn-primary" onclick="bubbleSpawner.play()">Sound on</button>
@@ -48,11 +56,11 @@
                 </div>
                 <div class="col">
                     <label for="color">Color</label>
-                    <input class="form-control" type="color" name="color" id="color" value="#FF0000">
+                    <input class="form-control" type="color" name="color" id="color" value="#eeeeee">
                 </div>
                 <div class="col">
                     <label for="letter">Letter</label>
-                    <input class="form-control" type="text" name="letter" id="letter" value="W">
+                    <input class="form-control" type="text" name="letter" id="letter" value="">
                 </div>
                 <div class="col">
                 <button class="btn btn-sm btn-primary" type="submit">Spawn more bubbles</button>

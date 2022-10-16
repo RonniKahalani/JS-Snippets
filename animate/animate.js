@@ -4,8 +4,27 @@ class BubbleSpawner {
 
     constructor() {
         
-        this.audio = document.getElementById('audio')
+        this.audioBubbles = document.getElementById('audio-bubbles')
+        this.audioOrangeFish = document.getElementById('audio-fish')
+        this.audioBlueFish = document.getElementById('audio-blue-fish')
         this.bubbleField = document.getElementById('bubble-field');
+
+        let orangeFish = document.querySelector('.fish')
+        orangeFish.addEventListener('click', (event) => {
+            this.audioOrangeFish.play()
+        })
+        let blueFish = document.querySelector('.blue-fish')
+        blueFish.addEventListener('click', (event) => {
+            this.audioOrangeFish.play()
+        })
+        let redFish = document.querySelector('.red-fish')
+        redFish.addEventListener('click', (event) => {
+            alert(`Hi I'm Red fish`)
+        })
+        let whiteFish = document.querySelector('.white-fish')
+        whiteFish.addEventListener('click', (event) => {
+            alert(`Hi I'm White fish`)
+        })
     }
 
     spawn() {
@@ -40,12 +59,12 @@ class BubbleSpawner {
         }
     }
 
-    play() {
-        this.audio.play()
+    playBubbles() {
+        this.audioBubbles.play()
     }
 
-    pause() {
-        this.audio.pause()
+    pauseBubbles() {
+        this.audioBubbles.pause()
 
     }
 }
