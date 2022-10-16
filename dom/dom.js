@@ -12,6 +12,9 @@ class DOM {
      */
     clear() {
         this.parentElement.innerHTML = '';
+        let elements = document.getElementsByTagName('body')
+
+        elements[0].style.backgroundColor = 'white' // Hex color = #FFFFFF
     }
     /**
      It is common for interactive websites to create new elements dynamically on user's actions and use them.
