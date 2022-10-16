@@ -1,8 +1,8 @@
 # JS-Snippets - file
-This JS component shows how to generate string based file data, to send to the backend server.
+Shows how to use HTML input file element and generate string based image file data.
 
 ## Scenario
-You need a feature to allow users to select a local file (ex. image), as an encoded string value, to be uploaded/saved on the backend.
+You need a feature to allow users to select local files (ex. images), as an encoded string values, to be uploaded/saved on the backend database and fetch to use in HTML img tags on a HTML page.
 
 ### See code
 https://github.com/RonniKahalani/JS-Snippets/tree/master/file
