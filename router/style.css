@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+}
+
+.card {
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+#card-login {
+    display: none;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+#card-logout {
+    display: none;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}

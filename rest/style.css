@@ -1,0 +1,40 @@
+h2 {
+    text-align: center;
+}
+
+.entry {
+    background-color: black;
+    color: white;
+    margin: 100px;
+    padding: 50px;
+    word-wrap: break-word;
+}
+
+@-webkit-keyframes blinker {
+    from {
+        opacity: 1.0;
+    }
+
+    to {
+        opacity: 0.0;
+    }
+}
+
+.blink {
+    -webkit-animation-name: blinker;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+    -webkit-animation-duration: 1.7s;
+}
+
+#spinner {
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 50%;
+    right: 50%;
+}
+
+.spinner-border {
+    margin: 0 auto;
+}
