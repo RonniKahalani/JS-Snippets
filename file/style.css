@@ -1,3 +1,15 @@
-input#file-upload-button {
-    background-color: blueviolet;
+h1 {
+    text-align: center;
+}
+.message-line:nth-child(odd) {
+    background-color: #ededed;
+}
+
+.message-line:nth-child(even) {
+    background-color: white;
+}
+
+.file-row {
+    margin: 5px;
+    padding: 5px;
 }

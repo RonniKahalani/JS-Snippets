@@ -18,19 +18,29 @@
 </head>
 
 <body>
-    <h1>Shows how to get a Base64 image/file string, via a HTML form</h1>
+    <h1>Base64 image/file string encoding</h1>
 
     <div class="container">
-        <div class="row">
+
+        <fieldset class="border p-2">
+            <legend class="w-auto">Select image(s) - Note: Only the first image is shown here. See file list below.</legend>
             <form id="form" class="form">
-                <label for="image">Select Image</label>
                 <input id="image" class="dropify" name="image" type="file" accept="image/png, image/jpeg" multiple>
             </form>
-        </div>
-        <div id="message" class="scrollbar form-control" style="height:100px;overflow:auto;"></div>
-        <div id="files" class="row">
+        </fieldset>
 
-        </div>
+        <fieldset class="border p-2">
+            <legend class="w-auto">Encoding log</legend>
+            <div id="message" class="scrollbar form-control" style="height:150px;overflow:auto;"></div>
+        </fieldset>
+
+        <fieldset class="border p-2">
+            <legend class="w-auto">Files <span id="fileCount"></span></legend>
+            <div id="files" class="row">
+        </fieldset>
+
+
+    </div>
     </div>
 </body>
 
