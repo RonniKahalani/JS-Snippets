@@ -53,7 +53,7 @@ $(document).ready(function () {
 
             let success = entry.launch_success;
             let launchDate = new Date(entry.launch_date_utc).toDateString();
-            let commonLinkTD = '<td><a class="tiny btn btn-dark" target="_blank" href="';
+            let commonLinkTD = '<td><a class="btn btn-sm btn-primary" target="_blank" href="';
 
             let table = `<tr style="vertical-align:middle;"><td style="color:${!success ? "#FF0000" : "#00FF00"};font-size:30px;width:5px;">&#8226;</td>
             <td>${entry.mission_name}</td>

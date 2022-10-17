@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +10,129 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
+    <link media="all" href="style.css" rel="stylesheet">
     <script src="dom.js" defer></script>
 </head>
-<body>
 
-    <button class="btn btn-sm btn-primary" onclick="dom.clear()">Clear</button>
-    <button class="btn btn-sm btn-primary" onclick="dom.createElement()">Create Element</button>
-    <button class="btn btn-sm btn-primary" onclick="dom.removeElement()">Remove Element</button>
-    <button class="btn btn-sm btn-primary" onclick="dom.removeAllElements()">Remove All Elements</button>
-    <button class="btn btn-sm btn-primary" onclick="dom.changeStyle()">Change Style</button>
-    <button class="btn btn-sm btn-primary" onclick="dom.toggleAttributes()">Toggle Attribute</button>
-    <button class="btn btn-sm btn-primary" onclick="dom.addEventListener()">Add Event Lister</button>
-    <button class="btn btn-sm btn-primary" onclick="dom.removeEventListener()">Remove Event Lister</button>
-    <div id="view" class="container"></div>
+<body>
+    <header class="btn-primary">
+        <h1>DOM - Document Object Model</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="card rounded m-2 p-2 col">
+                <div class="card-body">
+                    <h5 class="card-title">Preview Area</h5>
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="row">
+                <div class="card rounded m-2 p-2>
+                <div class=" card-body">
+                    <h5 class="card-title">DOM Controls</h5>
+                    
+                    <div class="row m-2">
+
+                        <div class="card col">
+                            <div class="card-body">
+                                <button class="btn btn-sm btn-primary float-end" onclick="dom.clear()">Clear</button>
+                                <h5 class="card-title">Clear</h5>
+                                <p>Clears the preview area.</p>
+                            </div>
+                        </div>
+
+                        <div class="card col">
+                            <div class="card-body">
+                                <button class="btn btn-sm btn-primary float-end" onclick="dom.createElement()">Create
+                                    Element</button>
+                                <h5 class="card-title">Create Element</h5>
+                                <p>Appends a new image HTML tag &lt;img src="..."&gt; into the preview area.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row m-2">
+
+                        <div class="card col">
+                            <div class="card-body">
+                                <button class="btn btn-sm btn-primary float-end" onclick="dom.setStyle()">Set
+                                    Style</button>
+                                <h5 class="card-title">Set Style</h5>
+                                <p>Sets a random background color on the body HTML tag.</p>
+
+                            </div>
+                        </div>
+
+                        <div class="card col">
+                            <div class="card-body">
+                                <button class="btn btn-sm btn-primary float-end" onclick="dom.setAttribute()">Set
+                                    Attribute</button>
+
+                                <h5 class="card-title">Set Attribute</h5>
+                                <p>Sets/toggles the style and class attributes on all image tags.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row m-2">
+                    
+                        <div class="card col">
+                            <div class="card-body">
+                                <button class="btn btn-sm btn-primary float-end" onclick="dom.removeElement()">Remove
+                                    Element</button>
+                                <h5 class="card-title">Remove Element</h5>
+                                <p>Removes the last image tag.</p>
+
+                            </div>
+                        </div>
+
+                        <div class="card col">
+                            <div class="card-body">
+                                <button class="btn btn-sm btn-primary float-end"
+                                    onclick="dom.removeAllElements()">Remove
+                                    All
+                                    Elements</button>
+                                <h5 class="card-title">Remove All Elements</h5>
+                                <p>Removes all image tags.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row m-2">
+                    
+                        <div class="card col">
+                            <div class="card-body">
+                                <button class="btn btn-sm btn-primary float-end" onclick="dom.addEventListener()">Add
+                                    Event
+                                    Lister</button>
+
+                                <h5 class="card-title">Add Event Listener</h5>
+                                <p>Adds a mouseover event listener to all image tags. Try to hover the mouse over a preview image and an alert will appear.</p>
+
+                            </div>
+                        </div>
+
+                        <div class="card col">
+                            <div class="card-body">
+                                <button class="btn btn-sm btn-primary float-end"
+                                    onclick="dom.removeEventListener()">Remove
+                                    Event Listener</button>
+                                <h5 class="card-title">Remove Event Listener</h5>
+                                <p>Removes mouseover event listeners from all image tags.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
+
 </html>

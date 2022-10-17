@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,35 +10,43 @@
     <link media="all" href="style.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    
+
     <script src="rest.js" defer></script>
 </head>
+
 <body>
     <header class="btn-primary">
         <h1>Fetch REST API (ex. SpaceX Launches)</h1>
     </header>
-    <table id="table" class="table">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">Name</th>
-                <th scope="col">Date</th>
-                <th scope="col">Rocket</th>
-                <th scope="col">Launch Site</th>
-                <th scope="col">Video</th>
-                <th scope="col">Image</th>
-                <th scope="col">Wikipedia</th>
-                <th scope="col">Article</th>
-            </tr>
-        </thead>
-        <tbody id="data"></tbody>
-    </table>
-    <div id="loading">
-        <div id="spinner" class="spinner-border" role="status">
-            <span class="sr-only"></span>
+    <div class="container">
+        <div class="card rounded m-2 p-2">
+            <div class="card-body">
+                <h5 class="card-title">SpaceX Launches</h5>
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Rocket</th>
+                            <th scope="col">Launch Site</th>
+                            <th scope="col">Video</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Wikipedia</th>
+                            <th scope="col">Article</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+                <div id="loading">
+                    <div id="spinner" class="spinner-border" role="status">
+                        <span class="sr-only"></span>
+                    </div>
+                    <div style="text-align: center;">Please wait, fetching SpaceX Launches...</div>
+                </div>
+            </div>
         </div>
-        <div style="text-align: center;">Please wait, fetching SpaceX Launches...</div>
     </div>
-
 </body>
+
 </html>

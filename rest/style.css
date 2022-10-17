@@ -32,12 +32,7 @@ h1 {
 }
 #loading {
     text-align: center;
-    display: block;
-    position: fixed;
-    z-index: 1032;
-    position: absolute;
-    top:50%;
-    left:50%;
+    margin: auto;
 }
 
 .spinner-border {
