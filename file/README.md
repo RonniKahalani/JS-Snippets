@@ -18,7 +18,7 @@ We will use such a standard file component, but prettify and Drag & Drop enable 
 ![image](https://user-images.githubusercontent.com/8819076/196126325-6c4fab22-a38c-4bdd-83a6-e217ecb06f2c.png)
 
 ### Using Dropify
-See more about Dropify at http://jeremyfagis.github.io/dropify/
+See more about [Dropify](http://jeremyfagis.github.io/dropify/)
 
 In this example we render the list of local files added for upload, and generate a Base64 encoded string, which can be used in img tags or be saved/posted to the backend, for later rendering.
 
