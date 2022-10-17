@@ -9,7 +9,7 @@ You need a feature to allow users to drag & drop local files (ex. images), to up
 - Generate Base64 image string, compatible as img tag source.
 
 ## See code
-[Code](https://github.com/RonniKahalani/JS-Snippets/tree/master/file){:target="_blank"}
+[Code](https://github.com/RonniKahalani/JS-Snippets/tree/master/file)
 
 ### The standard HTML input type file element
 The image below illustrates how the default UI component to upload a file looks on different platforms.
