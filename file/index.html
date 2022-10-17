@@ -18,30 +18,35 @@
 </head>
 
 <body>
-    <h1>Base64 image/file string encoding</h1>
+    <header class="btn-primary">
+        <h1>Base64 image/file string encoding</h1>
+    </header>
 
     <div class="container">
 
-        <fieldset class="border p-2">
-            <legend class="w-auto">Select image(s) - Note: Only the first image is shown here. See file list below.
-            </legend>
-            <form id="form" class="form">
-                <input id="image" class="dropify" name="image" type="file" accept="image/png, image/jpeg" multiple>
-            </form>
-        </fieldset>
+        <div class="col card rounded m-2 p-2">
+            <div class="card-body">
+                <h5 class="card-title">Select image(s) - Note: Only the first image is shown here. See file list below.
+                </h5>
+                <form id="form" class="form">
+                    <input id="image" class="dropify" name="image" type="file" accept="image/png, image/jpeg" multiple>
+                </form>
+            </div>
+        </div>
+        <div class="col card rounded m-2 p-2">
+            <div class="card-body">
+                <h5 class="card-title">Encoding Log</h5>
+                <div id="message" class="scrollbar form-control" style="height:150px;overflow:auto;"></div>
+            </div>
+        </div>
 
-        <fieldset class="border p-2">
-            <legend class="w-auto">Encoding log</legend>
-            <div id="message" class="scrollbar form-control" style="height:150px;overflow:auto;"></div>
-        </fieldset>
+        <div class="col card rounded m-2 p-2">
+            <div class="card-body">
+                <h5 class="card-title">Files <span id="fileCount"></span></h5>
+                <div id="files" class="row"></div>
+            </div>
 
-        <fieldset class="border p-2">
-            <legend class="w-auto">Files <span id="fileCount"></span></legend>
-            <div id="files" class="row">
-        </fieldset>
-
-
-    </div>
+        </div>
     </div>
     <script>
         /**
