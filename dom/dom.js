@@ -1,4 +1,5 @@
 'use strict'
+
 /**
  * Demonstrate how to manipulate tje Document Object Model. 
  */

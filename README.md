@@ -22,6 +22,6 @@ Shows how to use routing in a single page responsive web app.
 [Go to code](https://github.com/RonniKahalani/JS-Snippets/tree/master/router)
 
 ## dom
-Shows how to manipulate the DOM - Document Object Model, using pure JavaScript.
+Shows how to manipulate the DOM - Document Object Model, using JavaScript.
 
 [Go to code](https://github.com/RonniKahalani/JS-Snippets/tree/master/dom)
