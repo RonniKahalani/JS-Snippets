@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,11 +7,16 @@
     <title>Image Upload</title>
 
     <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link media="all" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 
+    <link media="all" href="style.css" rel="stylesheet">
     <script src="file.js" defer></script>
 </head>
+
 <body>
     <h1>Shows how to get a Base64 image/file string, via a HTML form</h1>
 
@@ -18,13 +24,14 @@
         <div class="row">
             <form id="form" class="form">
                 <label for="image">Select Image</label>
-                <input id="image" class="form-control-file" name="image" type="file" accept="image/png, image/jpeg" multiple>
+                <input id="image" class="dropify" name="image" type="file" accept="image/png, image/jpeg" multiple>
             </form>
         </div>
-        
+        <div id="message" class="scrollbar form-control" style="height:100px;overflow:auto;"></div>
         <div id="files" class="row">
-           
+
         </div>
     </div>
 </body>
+
 </html>
