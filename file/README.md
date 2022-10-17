@@ -4,12 +4,16 @@ Shows how to use HTML input file element and generate string based image file da
 ## Scenario
 You need a feature to allow users to drag & drop local files (ex. images), to upload as encoded string values, to be sent the backend database and fetched back to use in HTML img tags on a HTML page.
 
-### See code
+## Learning
+- Enabling file Drag & Drop.
+- Generate Base64 image string, compatible as img tag source.
+
+## See code
 https://github.com/RonniKahalani/JS-Snippets/tree/master/file
 
 ### The standard HTML input type file element
 The image below illustrates how the default UI component to upload a file looks on different platforms.
-We will use such a component, but prettify and drag & drop enable it, with the JS tool, called Dropify.
+We will use such a standard file component, but prettify and Drag & Drop enable it, with the JS tool, called Dropify.
 
 ![image](https://user-images.githubusercontent.com/8819076/196126325-6c4fab22-a38c-4bdd-83a6-e217ecb06f2c.png)
 
