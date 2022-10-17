@@ -93,26 +93,25 @@ class FileHandler {
                     $(filesDiv).append(
                         `<div class="row card rounded m-2 p-2 file-row">
                         <div class="card-body">
-                            <h5 class="card-title">Encoding Log</h5>
+                            <h5 class="card-title">${file.name}</h5>
 
                             <div class="row">
-                            <div class="col m-2 p-2">
+                            <div class="col">
                                 <img class="rounded" style="width:200px;height:150px;" src="${data}" />
                             </div>
                             
-                            <div class="col-2 m-2 p-2">
-                                <div class="row">${file.name}</div>
+                            <div class="col-2">
                                 <div class="row">Type: ${file.type}</div>
                                 <div class="row">File size: ${file.size.toLocaleString()}</div>
                                 <div class="row">Text size: ${data.length.toLocaleString()}</div>
                                 <div class="row">Diff. size: ${diffSize.toLocaleString()} (${diffPct.toFixed(2).toLocaleString()}%)</div>
                             </div>
 
-                            <div class="col-6 m-2 p-2">
+                            <div class="col-6">
                                 <textarea id="${idValue}" class="form-control col-xs-12" style="height:150px;">${data}</textarea>
                             </div>
 
-                            <div class="col-1 m-2 p-2">
+                            <div class="col-1">
                                 <button class="btn btn-sm btn-primary" style="float:right" onclick="fileHandler.copyToClipboard('${idValue}')">Copy</button>
                             </div>
                         </div></div></div></div>`)
