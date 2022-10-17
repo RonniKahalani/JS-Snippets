@@ -23,7 +23,8 @@
     <div class="container">
 
         <fieldset class="border p-2">
-            <legend class="w-auto">Select image(s) - Note: Only the first image is shown here. See file list below.</legend>
+            <legend class="w-auto">Select image(s) - Note: Only the first image is shown here. See file list below.
+            </legend>
             <form id="form" class="form">
                 <input id="image" class="dropify" name="image" type="file" accept="image/png, image/jpeg" multiple>
             </form>
@@ -42,6 +43,20 @@
 
     </div>
     </div>
+    <script>
+        /**
+        * Event Hooks.
+        */
+        document.getElementById('image').addEventListener("change", (event) => {
+            fileHandler.handleFiles(event.target.files, (data) => {
+                console.log(data)
+            })
+        });
+
+        window.addEventListener('load', (event) => {
+            $('.dropify').dropify();
+        })
+    </script>
 </body>
 
 </html>

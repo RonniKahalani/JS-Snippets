@@ -11,26 +11,24 @@ class Form {
         const formData = new FormData(this.form);
 
         var checkbox = $(form).find("input[type=checkbox]");
-        $.each(checkbox, function(key, val) {
+        $.each(checkbox, function (key, val) {
             let k = $(val).attr('id')
             let v = $(val).is(':checked')
             formData.append(k, v)
         });
+        // Remove the file input element, from the final form data
+        formData.delete('image')
 
-        var file = $(form).find("input[type=file]");
-        $.each(file, function(key, val) {
-            
+        fileHandler.base64Files.forEach(function (val, key, map) {
             formData.set(key, val)
         });
-        const jsonData = Object.fromEntries(formData);
 
-        return jsonData           
+        return Object.fromEntries(formData)
     }
 }
 
-document.forms['form'].onsubmit = (event) =>{
+document.forms['form'].onsubmit = (event) => {
     event.preventDefault();
     let json = new Form(event.target).json();
-    let jsonElement = document.getElementById("preview")
-    jsonElement.innerHTML = JSON.stringify(json)
+    document.getElementById("preview").innerText = JSON.stringify(json, null, '\t')
 }

@@ -10,47 +10,129 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
-    <script src="forms.js" defer></script>
+    <link media="all" href="style.css" rel="stylesheet">
+    <script src="../file/file.js" defer></script>
+    <script src="form.js" defer></script>
 </head>
 
 <body>
-    <h1>Shows how to get data from a HTML form</h1>
-
-    <form id="form" class="form">
-        <div class="form-group">
-                <label for="startDate">StartDate</label>
-                <input id="startDate" name="startDate" type="text" placeholder="yyyy-mm-dd">
-        </div>
-
-        <div class="form-group">
-                <label for="endDate">End Date</label>
-                <input id="endDate" name="endDate" type="text" placeholder="yyyy-mm-dd">
-        </div>
-
-        <div class="form-group">
-                <label for="product">Product</label>
-                <select id="product" name="product">
-                    <option value="1">Product 1</option>
-                    <option value="2">Product 2</option>
-                    <option value="3">Product 3</option>
-                </select>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="check" id="check">
-            <label class="check-label" for="check-input">Check me out</label>
-        </div>
-
-        <div class="form-group">
-            <label for="upload">Image</label>
-            <input id="upload" name="upload" type="file" accept="image/png, image/jpeg" placeholder="...">
-    </div>
-
-        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <header class="btn-primary">
+        <h1>JSON data from a HTML form</h1>
+    </header>
 
     <div class="container">
-    <div id="preview"></div>
+
+        <div class="col card rounded">
+            <div class="card-body">
+                <h5 class="card-title">Form</h5>
+
+                <form id="form" class="form container">
+
+                    <div class="col card rounded m-2 p-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Dates</h5>
+
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label for="startDate">StartDate</label><br>
+                                    <input class="form-control" id="startDate" name="startDate" type="date"
+                                        placeholder="yyyy-mm-dd" required>
+                                </div>
+
+                                <div class="form-group col">
+                                    <label for="endDate">End Date</label><br>
+                                    <input class="form-control" id="endDate" name="endDate" type="date"
+                                        placeholder="yyyy-mm-dd" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col card rounded m-2 p-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Products</h5>
+
+                                <div class="row">
+
+                                    <div class="form-group">
+                                        <label for="product">Please select a product</label>
+                                        <select class="form-select" id="product" name="product"
+                                            aria-placeholder="Select product" required>
+                                            <option value="1">Fantastic Product</option>
+                                            <option value="2">Well, it works technically speaking, but otherwise it's
+                                                useless
+                                            </option>
+                                            <option value="3">Dont buy it!!!</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col card rounded m-2 p-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Checklist</h5>
+
+                                <div class="row">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="check1" id="check1"
+                                            title="Click to toggle the state.">
+                                        <label class="check-label" for="check1">Check 1</label><br>
+                                        <input type="checkbox" class="check2" id="check2"
+                                            title="Click to toggle the state.">
+                                        <label class="check-label" for="check2">Check 2</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col card rounded m-2 p-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Image File(s)</h5>
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="image">Select image(s) to include.</label><br>
+                                        <input class="form-control" id="image" name="image" type="file"
+                                            accept="image/png, image/jpeg" placeholder="..." multiple required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col form-group my-2">
+                        <button id="submit" type="submit" class="btn btn-primary float-end"
+                            title="Click to submit data.">Submit</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+        <div class="col card rounded">
+            <div class="panel-heading mt-3">
+                <h3 class="panel-title">JSON Preview</h3>
+            </div>
+            <div class="card-body">
+                <div id="preview" class="form-control">Submit the form and you'll see the JSON data here. </div>
+            </div>
+        </div>
+
     </div>
+
+    <script>
+        /**
+        * Event Hooks.
+        */
+        document.getElementById('image').addEventListener("change", (event) => {
+            fileHandler.handleFiles(event.target.files, (data) => {
+                console.log(data)
+            })
+        });
+
+    </script>
 </body>
 
 </html>

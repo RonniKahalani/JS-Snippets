@@ -5,7 +5,7 @@
 class FileHandler {
 
     constructor() {
-
+        this.base64Files = new Map()
     }
 
     /**
@@ -32,11 +32,7 @@ class FileHandler {
      * Base64 encode a file.
      */
     async base64(file, callback) {
-        this.log(`Encoding: ${file.name}...`)
-        let startTime = window.performance.now()
         let data = await this.convertBase64(file);
-        let endTime = window.performance.now()
-        this.log(`Encode completed (${(endTime - startTime).toFixed(2)} ms) for: ${file.name}.`)
         callback(data)
     }
 
@@ -58,62 +54,75 @@ class FileHandler {
      * Logs the message to the message div, on the web page.
      */
     log(message) {
-        $('#message').prepend(`<div class="row message-row">${new Date().toLocaleString() + ": " + message}</div>`)
+        let logMessage = new Date().toLocaleString() + ": " + message
+        console.log(logMessage)
+
+        let messageDiv = $('#message')
+        if (messageDiv != null) {
+
+            messageDiv.prepend(`<div class="row message-row">${logMessage}</div>`)
+        }
     }
 
-    handleFiles(files) {
+    handleFiles(files, callback) {
         // Clear the files element.
         $('#files').text('')
+        this.base64Files.clear()
 
         // Go through all the files and encode them.
         for (let index = 0; index < files.length; index++) {
             let file = files[index]
 
+            this.log(`Encoding: ${file.name}...`)
+            let startTime = window.performance.now()
+
             fileHandler.base64(file, (data) => {
+
+                let endTime = window.performance.now()
+                this.log(`Encode completed (${(endTime - startTime).toFixed(2)} ms) for: ${file.name}.`)
+
                 let idValue = 'file-' + index
+                this.base64Files.set(idValue, data)
                 // Append the current file encoded string.
                 let diffSize = (parseFloat(data.length - file.size))
                 let diffPct = (parseFloat((diffSize / file.size) * 100))
 
-                $('#files').append(
-                    `<div class="row file-row">
+                let filesDiv = $('#files')
 
-                <div class="col-2 mp-2">
-                    <img class="rounded" style="width:200px;height:150px;" src="${data}" />
-                </div>
-                
-                <div class="col-2 mp-2">
-                    <div class="row">${file.name}</div>
-                    <div class="row">Type: ${file.type}</div>
-                    <div class="row">File size: ${file.size.toLocaleString()}</div>
-                    <div class="row">Text size: ${data.length.toLocaleString()}</div>
-                    <div class="row">Diff. size: ${diffSize.toLocaleString()} (${diffPct.toFixed(2).toLocaleString()}%)</div>
-                </div>
+                if (filesDiv != null) {
+                    $(filesDiv).append(
+                        `<div class="row file-row">
 
-                <div class="col mp-2">
-                    <textarea id="${idValue}" class="form-control col-xs-12" style="height:150px;">${data}</textarea>
-                </div>
+                            <div class="col-2 mp-2">
+                                <img class="rounded" style="width:200px;height:150px;" src="${data}" />
+                            </div>
+                            
+                            <div class="col-2 mp-2">
+                                <div class="row">${file.name}</div>
+                                <div class="row">Type: ${file.type}</div>
+                                <div class="row">File size: ${file.size.toLocaleString()}</div>
+                                <div class="row">Text size: ${data.length.toLocaleString()}</div>
+                                <div class="row">Diff. size: ${diffSize.toLocaleString()} (${diffPct.toFixed(2).toLocaleString()}%)</div>
+                            </div>
 
-                <div class="col-1 mp-2">
-                    <button class="btn btn-sm btn-primary" style="float:right" onclick="fileHandler.copyToClipboard('${idValue}')">Copy</button>
-                </div>
-            </div>`)
+                            <div class="col mp-2">
+                                <textarea id="${idValue}" class="form-control col-xs-12" style="height:150px;">${data}</textarea>
+                            </div>
 
-                document.getElementById('fileCount').innerHTML = files.length
-                //console.log(data)
+                            <div class="col-1 mp-2">
+                                <button class="btn btn-sm btn-primary" style="float:right" onclick="fileHandler.copyToClipboard('${idValue}')">Copy</button>
+                            </div>
+                        </div>`)
+                }
+
+                let fileCount = document.getElementById('fileCount')
+                if(fileCount != null) {
+                    fileCount.innerHTML = files.length
+                }
+
+                callback(this.base64Files)
             });
         }
     }
 }
 var fileHandler = new FileHandler()
-
-/**
- * Event Hooks.
- */
-document.getElementById('image').addEventListener("change", (event) => {
-    fileHandler.handleFiles(event.target.files)
-});
-
-window.addEventListener('load', (event) => {
-    $('.dropify').dropify();
-})
