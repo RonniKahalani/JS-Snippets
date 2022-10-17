@@ -46,11 +46,8 @@ class FileHandler {
     async copyToClipboard(id) {
         let element = document.getElementById(id)
         element.focus()
-
-        let data = element.value
-
         try {
-            await navigator.clipboard.writeText(data)
+            await navigator.clipboard.writeText(element.value)
             this.log('Copied to the clipboard successfully.')
         } catch (error) {
             this.log(error)
@@ -61,7 +58,7 @@ class FileHandler {
      * Logs the message to the message div, on the web page.
      */
     log(message) {
-        $('#message').prepend(`<div class="row message-line">${new Date().toLocaleString() + ": " + message}</div>`)
+        $('#message').prepend(`<div class="row message-row">${new Date().toLocaleString() + ": " + message}</div>`)
     }
 
     handleFiles(files) {
@@ -81,11 +78,11 @@ class FileHandler {
                 $('#files').append(
                     `<div class="row file-row">
 
-                <div class="col">
+                <div class="col-2 mp-2">
                     <img class="rounded" style="width:200px;height:150px;" src="${data}" />
                 </div>
                 
-                <div class="col">
+                <div class="col-2 mp-2">
                     <div class="row">${file.name}</div>
                     <div class="row">Type: ${file.type}</div>
                     <div class="row">File size: ${file.size.toLocaleString()}</div>
@@ -93,12 +90,12 @@ class FileHandler {
                     <div class="row">Diff. size: ${diffSize.toLocaleString()} (${diffPct.toFixed(2).toLocaleString()}%)</div>
                 </div>
 
-                <div class="col-6">
+                <div class="col mp-2">
                     <textarea id="${idValue}" class="form-control col-xs-12" style="height:150px;">${data}</textarea>
                 </div>
 
-                <div class="col-1">
-                    <button class="btn btn-sm btn-primary" onclick="fileHandler.copyToClipboard('${idValue}')">Copy</button>
+                <div class="col-1 mp-2">
+                    <button class="btn btn-sm btn-primary" style="float:right" onclick="fileHandler.copyToClipboard('${idValue}')">Copy</button>
                 </div>
             </div>`)
 

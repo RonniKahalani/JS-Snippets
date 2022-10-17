@@ -1,15 +1,23 @@
 h1 {
     text-align: center;
 }
-.message-line:nth-child(odd) {
+.message-row:nth-child(odd) {
     background-color: #ededed;
 }
 
-.message-line:nth-child(even) {
-    background-color: white;
+.message-row:nth-child(even) {
+    background-color: #f8f8f8;
 }
 
 .file-row {
     margin: 5px;
     padding: 5px;
+}
+
+.file-row:nth-child(odd) {
+    background-color: #ededed;
+}
+
+.file-row:nth-child(even) {
+    background-color: #f8f8f8;
 }
