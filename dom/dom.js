@@ -28,7 +28,7 @@ class DOM {
         let element = document.createElement('img')
 
         // Set the element properties.
-        element.setAttribute('src', 'http://www.tutorialandexample.com/wp-content/uploads/2018/06/window-object1.png')
+        element.setAttribute('src', './kitty.gif')
 
         this.parentElement.append(element)
     }

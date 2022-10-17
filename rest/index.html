@@ -13,7 +13,9 @@
     <script src="rest.js" defer></script>
 </head>
 <body>
-    <h2 class="blink">Please wait, fetching data</h2>
+    <header class="btn-primary">
+        <h1>Fetch REST API (ex. SpaceX Launches)</h1>
+    </header>
     <table id="table" class="table">
         <thead>
             <tr>
@@ -30,8 +32,12 @@
         </thead>
         <tbody id="data"></tbody>
     </table>
-    <div id="spinner" class="spinner-border" role="status">
-        <span class="sr-only"></span>
+    <div id="loading">
+        <div id="spinner" class="spinner-border" role="status">
+            <span class="sr-only"></span>
+        </div>
+        <div style="text-align: center;">Please wait, fetching SpaceX Launches...</div>
     </div>
+
 </body>
 </html>
