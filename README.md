@@ -4,7 +4,7 @@ This repository contains code snippets for JavaScript example use.
 ## file
 Shows how to use file/upload HTML element, in the browser, to generate a string encoded image, which can be sent to the backend server.
 
-https://github.com/RonniKahalani/JS-Snippets/tree/master/file
+[Go to code](https://github.com/RonniKahalani/JS-Snippets/tree/master/file)
 
 ## form
 Shows how to extract HTML form data, as JSON, ready to post to a backend server.
