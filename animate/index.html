@@ -19,51 +19,40 @@
 
         <div class="row">
 
-            <audio id="audio-bubbles">
-                <source src="bubbles.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>           
-            <audio id="audio-fish">
-                <source src="baby-laugh.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <audio id="audio-blue-fish">
-                <source src="fart.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <button class="btn btn-sm btn-primary" onclick="bubbleSpawner.play()">Sound on</button>
-            <button class="btn btn-sm btn-primary" onclick="bubbleSpawner.pause()">Sound off</button>
-
+            
+           
         </div>
         <div class="row">
 
             <form id="form-bubbles" class="form form-inline row">
                 <div class="col">
-                    <label for="bubbleCount">Number of bubbles</label>
-                    <input class="form-control" type="number" name="bubbleCount" id="bubbleCount" value="30" min="1"
+                    <label for="bubbleCount">Number of bubbles</label><br>
+                    <input class="form-control-number-sm" type="number" name="bubbleCount" id="bubbleCount" value="30" min="1"
                         max="9999">
                 </div>
                 <div class="col">
-
-                    <label for="randomFactor">Random factor</label>
-                    <input class="form-control" type="number" name="randomFactor" id="randomFactor" value="20" min="1"
+                    <label for="randomFactor">Random factor</label><br>
+                    <input class="form-control-number-sm" type="number" name="randomFactor" id="randomFactor" value="20" min="1"
                         max="99">
                 </div>
                 <div class="col">
-                    <label for="duration">Duration (secs)</label>
-                    <input class="form-control" type="number" name="duration" id="duration" value="2" min="0"
+                    <label for="duration">Duration (secs)</label><br>
+                    <input class="form-control-number-sm" type="number" name="duration" id="duration" value="2" min="0"
                         max="9999">
                 </div>
                 <div class="col">
-                    <label for="color">Color</label>
-                    <input class="form-control" type="color" name="color" id="color" value="#eeeeee">
+                    <label for="color">Color</label><br>
+                    <input class="form-control-color-sm" type="color" name="color" id="color" value="#eeeeee">
                 </div>
                 <div class="col">
-                    <label for="letter">Letter</label>
-                    <input class="form-control" type="text" name="letter" id="letter" value="">
+                    <label for="letter">Letter</label><br>
+                    <input class="form-control-text-sm" type="text" name="letter" id="letter" value="">
                 </div>
-                <div class="col">
-                <button class="btn btn-sm btn-primary" type="submit">Spawn more bubbles</button>
+                <div class="col-3">
+                <button class="btn btn-primary" type="submit">Spawn more bubbles</button>
+                <button class="btn btn-primary" onclick="bubbleSpawner.playBubbles()">Sound on</button>
+                <button class="btn btn-primary" onclick="bubbleSpawner.pauseBubbles()">Sound off</button>
+    
                 </div>
             </form>
         </div>
@@ -111,6 +100,27 @@
             <div class="scale scale-3"></div>
         </div>
     </div>
+
+    <audio id="audio-bubbles" autoplay preload="">
+        <source src="bubbles.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>           
+    <audio id="audio-fish">
+        <source src="baby-laugh.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="audio-blue-fish">
+        <source src="fart.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="audio-red-fish">
+        <source src="cough.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="audio-white-fish">
+        <source src="scream.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 
 </html>
