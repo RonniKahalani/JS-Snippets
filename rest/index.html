@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarExample01">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../dom/index.html">DOM</a>
@@ -60,9 +60,10 @@
 
         <!-- Jumbotron -->
         <div class="p-5 text-center bg-light">
-            <h1 class="mb-3">Fetch REST API (ex. SpaceX Launches)</h1>
-            <h4 class="mb-3">Subheading</h4>
-            <a class="btn btn-primary" href="" role="button">Call to action</a>
+            <h1 class="mb-3">REST Request</h1>
+            <h4 class="mb-3">Shows how to use REST API based JSON data from a REST endpoint.</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/rest"
+                target="_blank" role="button">View Code</a>
         </div>
         <!-- Jumbotron -->
     </header>
@@ -96,6 +97,54 @@
             </div>
         </div>
     </div>
+    <script>
+        /**
+ * Event Hook
+ */
+        $(document).ready(function () {
+
+            let url = "https://api.spacexdata.com/v2/launches"
+
+            console.log(`Fetching data from ${url}...`);
+            let settings = {
+                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                //mode: 'cors', // no-cors, *cors, same-origin
+                //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                //redirect: 'follow', // manual, *follow, error
+                //referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                //body: JSON.stringify(data) // body data type must match "Content-Type" header
+            }
+
+            new RestRequest().execute(url, settings, (data) => {
+
+                for (let dataIndex in data) {
+                    let entry = data[dataIndex];
+
+                    let success = entry.launch_success;
+                    let launchDate = new Date(entry.launch_date_utc).toDateString();
+                    let commonLinkTD = '<td><a class="btn btn-sm btn-primary" target="_blank" href="';
+
+                    let table = `<tr style="vertical-align:middle;"><td style="color:${!success ? "#FF0000" : "#00FF00"};font-size:30px;width:5px;">&#8226;</td>
+        <td>${entry.mission_name}</td>
+        <td>${launchDate}</td>
+        <td>${entry.rocket.rocket_name}</td>
+        <td title="${entry.launch_site.site_name_long}">${entry.launch_site.site_name}</td>
+        ${commonLinkTD + entry.links.video_link}">Video</a></td>
+        ${commonLinkTD + entry.links.mission_patch}">Image</a></td>
+        ${commonLinkTD + entry.links.wikipedia}">Wikipedia</a></td>
+        ${commonLinkTD + entry.links.article_link}">Article</a></td></tr>`;
+
+                    $('#data').append(table);
+                }
+                $('#loading').hide()
+                $("#table").fadeIn("slow");
+            })
+            console.log("ready!");
+        });
+    </script>
 </body>
 
 </html>
