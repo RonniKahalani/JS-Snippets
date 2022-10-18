@@ -5,8 +5,10 @@ Shows how to use HTML input file element and generate string based image file da
 You need a feature to allow users to drag & drop local files (ex. images), to upload as encoded string values, to be sent the backend database and fetched back to use in HTML img tags on a HTML page.
 
 ## Learning
-- Enabling file Drag & Drop.
+- Enabling Drag & Drop file uploads.
+- Copy data to System clipboard.
 - Generate Base64 image string, compatible as img tag source.
+- Generate dynamic page content.
 
 ### The standard HTML input type file element
 The image below illustrates how the default UI component to upload a file looks on different platforms.
