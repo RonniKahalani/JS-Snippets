@@ -10,6 +10,8 @@ You need a feature to allow users to drag & drop local files (ex. images), to up
 - Generate Base64 image string, compatible as img tag source.
 - Generate dynamic page content.
 
+## Introduction
+
 ### The standard HTML input type file element
 The image below illustrates how the default UI component to upload a file looks on different platforms.
 We will use such a standard file component, but prettify and Drag & Drop enable it, with the JS tool, called Dropify.
