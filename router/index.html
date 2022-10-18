@@ -9,11 +9,13 @@
     <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
         rel="stylesheet">
-    <link media="all" href="style.css" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    <script src="routes.js" defer></script>
-    <script src="app.js" defer></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+        <script src="routes.js" defer></script>
+        <script src="app.js" defer></script>
+
+        <link media="all" href="../master.css" rel="stylesheet">
+        <link media="all" href="style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -40,7 +42,7 @@
         </div>
     </nav>
 
-    <div id="card-logout" class="card">
+    <div id="card-logout">
         <div class="row">
             <div class="col">
                 <span id="login-username"></span>
@@ -50,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div id="card-login" class="card">
+    <div id="card-login">
         <form id="form-login" class="form-inline">
             <div class="row">
                 <div class="col-sm">
@@ -74,7 +76,7 @@
         Templates for product list
     -->
     <template id="template-producttable">
-        <table id="table" class="table table-dark">
+        <table id="table" class="table">
             <thead>
                 <tr>
                     <td>Brand</td>

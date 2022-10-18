@@ -4,55 +4,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Animate</title>
 
     <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
-    <link media="all" href="style.css" rel="stylesheet">
     <script src="animate.js" defer></script>
+
+    <link media="all" href="../master.css" rel="stylesheet">
+    <link media="all" href="style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="header">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarExample01">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../dom/index.html">DOM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../form/index.html">Form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../file/index.html">File</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../rest/index.html">REST</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../router/index.html">Router</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../animate/index.html">Animate</a>
+                        </li>
 
-        <div class="row">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
 
-            
-           
+        <!-- Jumbotron -->
+        <div class="p-5 text-center bg-light">
+            <h1 class="mb-3">Animate</h1>
+            <h4 class="mb-3">Subheading</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/animate" target="_blank" role="button">View Code</a>
         </div>
+        <!-- Jumbotron -->
+    </header>
+
+    <div class="container">
+
         <div class="row">
 
             <form id="form-bubbles" class="form form-inline row">
                 <div class="col">
                     <label for="bubbleCount">Number of bubbles</label><br>
-                    <input class="form-control-number-sm" type="number" name="bubbleCount" id="bubbleCount" value="30" min="1"
-                        max="9999">
+                    <input class="form-control-number-sm" type="number" name="bubbleCount" id="bubbleCount" value="30"
+                        min="1" max="9999" maxlength="4" oninput="validateNumberInput(this);">
                 </div>
                 <div class="col">
                     <label for="randomFactor">Random factor</label><br>
-                    <input class="form-control-number-sm" type="number" name="randomFactor" id="randomFactor" value="20" min="1"
-                        max="99">
+                    <input class="form-control-number-sm" type="number" name="randomFactor" id="randomFactor" value="20"
+                        min="1" max="99" maxlength="2" oninput=oninput="validateNumberInput(this);">
                 </div>
                 <div class="col">
                     <label for="duration">Duration (secs)</label><br>
                     <input class="form-control-number-sm" type="number" name="duration" id="duration" value="2" min="0"
-                        max="9999">
+                        max="10" maxlength="2" oninput="validateNumberInput(this);">
                 </div>
                 <div class="col">
                     <label for="color">Color</label><br>
                     <input class="form-control-color-sm" type="color" name="color" id="color" value="#eeeeee">
                 </div>
                 <div class="col">
-                    <label for="letter">Letter</label><br>
+                    <label for="letter">Text</label><br>
                     <input class="form-control-text-sm" type="text" name="letter" id="letter" value="">
                 </div>
                 <div class="col-3" style="vertical-align: middle;">
-                <button class="btn btn-primary" type="submit">Spawn more bubbles</button>
-                <button class="btn btn-primary" onclick="bubbleSpawner.playBubbles()">Sound on</button>
-                <button class="btn btn-primary" onclick="bubbleSpawner.pauseBubbles()">Sound off</button>
-    
+                    <button class="btn btn-sm btn-primary" type="submit">Spawn bubbles</button>
+                    <button id="playBubbles" class="btn btn-sm btn-primary" onclick="bubbleSpawner.playBubbles()">Sound on</button>
+                    <button id="pauseBubbles" class="btn btn-sm btn-primary disabled" onclick="bubbleSpawner.pauseBubbles()">Sound off</button>
+
                 </div>
             </form>
         </div>
@@ -101,26 +149,42 @@
         </div>
     </div>
 
-    <audio id="audio-bubbles" autoplay preload="">
+    <audio id="audio-bubbles" autoplay preload loop>
         <source src="bubbles.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-    </audio>           
-    <audio id="audio-fish">
+    </audio>
+    <audio id="audio-fish" preload>
         <source src="baby-laugh.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <audio id="audio-blue-fish">
+    <audio id="audio-blue-fish" preload>
         <source src="fart.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <audio id="audio-red-fish">
+    <audio id="audio-red-fish" preload>
         <source src="cough.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <audio id="audio-white-fish">
+    <audio id="audio-white-fish" preload>
         <source src="scream.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+    <script>
+        function validateNumberInput(elem) {
+            if (elem.value.length > elem.maxLength) {
+                elem.value = elem.value.slice(0, elem.maxLength);
+            }
+        }
+
+        window.addEventListener('load', (event) => {
+            bubbleSpawner.spawnBubbles()
+        })
+
+        document.forms['form-bubbles'].addEventListener('submit', (event) => {
+            event.preventDefault()
+            bubbleSpawner.spawnBubbles();
+        })
+    </script>
 </body>
 
 </html>

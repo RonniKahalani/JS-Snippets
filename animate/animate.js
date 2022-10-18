@@ -3,7 +3,7 @@
 class BubbleSpawner {
 
     constructor() {
-        
+        this.playingBubbleAudio = false
         this.audioBubbles = document.getElementById('audio-bubbles')
         this.audioOrangeFish = document.getElementById('audio-fish')
         this.audioBlueFish = document.getElementById('audio-blue-fish')
@@ -29,7 +29,10 @@ class BubbleSpawner {
         })
     }
 
-    spawn() {
+    /**
+     * Spawns new bubbles
+     */
+    spawnBubbles() {
 
         let bubbleCount = parseInt(document.getElementById('bubbleCount').value)
         let randomFactor = parseInt(document.getElementById('randomFactor').value)
@@ -61,22 +64,25 @@ class BubbleSpawner {
         }
     }
 
+    /**
+     * Plays the bubble playing audio.
+     */
     playBubbles() {
         this.audioBubbles.play()
+        this.playingBubbleAudio = true
+        document.getElementById('playBubbles').classList.add('disabled')
+        document.getElementById('pauseBubbles').classList.remove('disabled')
+
     }
 
+    /**
+     * Pauses the bubble playing audio.
+     */
     pauseBubbles() {
         this.audioBubbles.pause()
-
+        this.playingBubbleAudio = false
+        document.getElementById('playBubbles').classList.remove('disabled')
+        document.getElementById('pauseBubbles').classList.add('disabled')
     }
 }
 var bubbleSpawner = new BubbleSpawner()
-
-window.addEventListener('load', (event) => {
-    bubbleSpawner.spawn()
-})
-
-document.forms['form-bubbles'].addEventListener('submit', (event) => {
-    event.preventDefault()
-    bubbleSpawner.spawn();
-})

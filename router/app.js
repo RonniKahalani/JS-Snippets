@@ -49,8 +49,9 @@ function login() {
     createUserSession(username, btoa(password), roles)
     toggleLoginUI(false)
 
-    $('#view').html(`<h1>Welcome back ${username}</h1>
-    <p>Roles: ${roles}</p>`);
+   // $('#view').html(`<h1>Welcome back ${username}</h1>
+    //<p>Roles: ${roles}</p>`);
+    home()
 };
 
 /**
