@@ -17,63 +17,58 @@
 </head>
 
 <body>
-    
-<header>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-      <div class="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#navbarExample01"
-          aria-controls="navbarExample01"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarExample01">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="../index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../dom/index.html">DOM</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../form/index.html">Form</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../file/index.html">File</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../rest/index.html">REST</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../router/index.html">Router</a>
-              </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../animate/index.html">Animate</a>
-              </li>
-  
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-          </ul>
+
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarExample01">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../dom/index.html">DOM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../form/index.html">Form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../file/index.html">File</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../rest/index.html">REST</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../router/index.html">Router</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../animate/index.html">Animate</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+
+        <!-- Jumbotron -->
+        <div class="p-5 text-center bg-light">
+            <h1 class="mb-3">DOM - Document Object Model</h1>
+            <h4 class="mb-3">Shows how to manipulate DOM elements.</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/dom"
+                target="_blank" role="button">View Code</a>
         </div>
-      </div>
-    </nav>
-    <!-- Navbar -->
-  
-    <!-- Jumbotron -->
-    <div class="p-5 text-center bg-light">
-      <h1 class="mb-3">DOM - Document Object Model</h1>
-      <h4 class="mb-3">Shows how to manipulate DOM elements.</h4>
-      <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/dom" target="_blank" role="button">View Code</a>
-    </div>
-    <!-- Jumbotron -->
-  </header>
+        <!-- Jumbotron -->
+    </header>
 
     <div class="container">
 
@@ -82,8 +77,10 @@
             <div class="card rounded m-2 p-2 col">
                 <div class="card-body">
                     <h5 class="card-title">Preview Area</h5>
-                    <div id="preview"></div>
+                    <button class="btn btn-sm btn-primary float-end mx-2" onclick="dom.createElement()">Create Element</button>
+                    <button class="btn btn-sm btn-primary float-end" onclick="dom.clear()">Clear</button>
                 </div>
+                <div id="preview"></div>
             </div>
         </div>
 
@@ -93,30 +90,10 @@
                 <div class="card rounded m-2 p-2>
                 <div class=" card-body">
                     <h5 class="card-title">DOM Controls</h5>
-                    
-                    <div class="row m-2">
-
-                        <div class="card col">
-                            <div class="card-body">
-                                <button class="btn btn-sm btn-primary float-end" onclick="dom.clear()">Clear</button>
-                                <h5 class="card-title">Clear</h5>
-                                <p>Clears the preview area.</p>
-                            </div>
-                        </div>
-
-                        <div class="card col">
-                            <div class="card-body">
-                                <button class="btn btn-sm btn-primary float-end" onclick="dom.createElement()">Create
-                                    Element</button>
-                                <h5 class="card-title">Create Element</h5>
-                                <p>Appends a new image HTML tag &lt;img src="..."&gt; into the preview area.</p>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="row m-2">
 
-                        <div class="card col">
+                        <div class="card col m-2">
                             <div class="card-body">
                                 <button class="btn btn-sm btn-primary float-end" onclick="dom.setStyle()">Set
                                     Style</button>
@@ -126,7 +103,7 @@
                             </div>
                         </div>
 
-                        <div class="card col">
+                        <div class="card col m-2">
                             <div class="card-body">
                                 <button class="btn btn-sm btn-primary float-end" onclick="dom.setAttribute()">Set
                                     Attribute</button>
@@ -139,8 +116,8 @@
                     </div>
 
                     <div class="row m-2">
-                    
-                        <div class="card col">
+
+                        <div class="card col m-2">
                             <div class="card-body">
                                 <button class="btn btn-sm btn-primary float-end" onclick="dom.removeElement()">Remove
                                     Element</button>
@@ -150,7 +127,7 @@
                             </div>
                         </div>
 
-                        <div class="card col">
+                        <div class="card col m-2">
                             <div class="card-body">
                                 <button class="btn btn-sm btn-primary float-end"
                                     onclick="dom.removeAllElements()">Remove
@@ -163,20 +140,21 @@
                     </div>
 
                     <div class="row m-2">
-                    
-                        <div class="card col">
+
+                        <div class="card col m-2">
                             <div class="card-body">
                                 <button class="btn btn-sm btn-primary float-end" onclick="dom.addEventListener()">Add
                                     Event
                                     Lister</button>
 
                                 <h5 class="card-title">Add Event Listener</h5>
-                                <p>Adds a mouseover event listener to all image tags. Try to hover the mouse over a preview image and an alert will appear.</p>
+                                <p>Adds a mouseover event listener to all image tags. Try to hover the mouse over a
+                                    preview image and an alert will appear.</p>
 
                             </div>
                         </div>
 
-                        <div class="card col">
+                        <div class="card col m-2">
                             <div class="card-body">
                                 <button class="btn btn-sm btn-primary float-end"
                                     onclick="dom.removeEventListener()">Remove
@@ -189,6 +167,16 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Footer-->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2022 Copyright:
+            <a class="text-reset fw-bold" href="https://learningisliving.dk/">LearningIsLiving.dk</a>
+        </div>
+    </footer>
 </body>
 
 </html>
