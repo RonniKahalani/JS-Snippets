@@ -1,4 +1,4 @@
-JS-Snippets - rest
+# JS-Snippets - rest
 Shows how to fetch json data from a REST endpoint.
 
 ## Scenario
