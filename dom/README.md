@@ -5,4 +5,8 @@ Shows how to manipulate DOM elements.
 You need a feature to manipulate the DOM elements witj JavaScript.
 
 ## Learning
-- Creating elements and change styles and attributes.
+- Dynamically create and remove elements, change styles and attributes.
+- Add and remove event listeners.
+
+## Introduction
+...
