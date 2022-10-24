@@ -17,11 +17,11 @@ class AsyncHandler {
     startAsync() {
         console.log(`Starting promises...`)
 
-        let promise1 = this.getPromise('T1', 'item-square', 10, 1).then((data) => {
+        let promise1 = this.getPromise('T1', 'item-square', 10000, 1).then((data) => {
             console.log(data)
         })
 
-        let promise2 = this.getPromise('T2', 'item-circle', 10, 1).then((data) => {
+        let promise2 = this.getPromise('T2', 'item-circle', 10000, 1).then((data) => {
             console.log(data)
         })
 
