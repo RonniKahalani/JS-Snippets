@@ -7,7 +7,6 @@
     <title>Rest Request</title>
 
     <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link media="all" href="style.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
@@ -73,19 +72,19 @@
 
             <div class="card col m-2">
                 <div class="card-body">
-                    <button class="btn btn-sm btn-primary float-end"
-                        onclick="location.href='./file/index.html'">File</button>
                     <h5 class="card-title">File</h5>
                     <p>Shows how to use input/upload file HTML element and generate base64 strings.</p>
+                    <button class="btn btn-sm btn-primary float-end"
+                        onclick="location.href='./file/index.html'">Show</button>
                 </div>
             </div>
 
             <div class="card col m-2">
                 <div class="card-body">
-                    <button class="btn btn-sm btn-primary float-end"
-                        onclick="location.href='./rest/index.html'">REST</button>
                     <h5 class="card-title">REST</h5>
                     <p>Shows how to fetch json data from a REST endpoint.</p>
+                    <button class="btn btn-sm btn-primary float-end"
+                        onclick="location.href='./rest/index.html'">Show</button>
                 </div>
             </div>
         </div>
@@ -94,20 +93,20 @@
 
             <div class="card col m-2">
                 <div class="card-body">
-                    <button class="btn btn-sm btn-primary float-end"
-                        onclick="location.href='./dom/index.html'">DOM</button>
                     <h5 class="card-title">DOM</h5>
                     <p>Shows how to manipulate DOM elements.</p>
+                    <button class="btn btn-sm btn-primary float-end"
+                        onclick="location.href='./dom/index.html'">Show</button>
 
                 </div>
             </div>
 
             <div class="card col m-2">
                 <div class="card-body">
-                    <button class="btn btn-sm btn-primary float-end" onclick="location.href='./form/index.html'"">Form</button>
-
+                    
                     <h5 class=" card-title">Form</h5>
-                        <p>Shows how to extract HTML form data, in JSON format.</p>
+                    <p>Shows how to extract HTML form data, in JSON format.</p>
+                    <button class="btn btn-sm btn-primary float-end" onclick="location.href='./form/index.html'"">Show</button>
 
                 </div>
             </div>
@@ -118,26 +117,41 @@
 
             <div class="card col m-2">
                 <div class="card-body">
-                    <button class="btn btn-sm btn-primary float-end"
-                        onclick="location.href='./router/index.html'">Router</button>
+
                     <h5 class="card-title">Router</h5>
                     <p>Shows how to use routing in a single page responsive web app.</p>
-
+                    <button class="btn btn-sm btn-primary float-end"
+                        onclick="location.href='./router/index.html'">Show</button>
                 </div>
             </div>
 
             <div class="card col m-2">
                 <div class="card-body">
-                    <button class="btn btn-sm btn-primary float-end" onclick="location.href='./animate/index.html'"">Animate</button>
-
+                    
                     <h5 class=" card-title">Animate</h5>
-                        <p>Shows how to animate HTML elements, via CSS and JavaScript.</p>
+                    <p>Shows how to animate HTML elements, via CSS and JavaScript.</p>
+                    <button class="btn btn-sm btn-primary float-end" onclick="location.href='./animate/index.html'"">Show</button>
 
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        let data = document.querySelectorAll('button')
+        $.each(data, (key, value) => {
+
+            value.addEventListener('mouseover', (event) => {
+                event.target.classList.add('wiggle')
+
+            })
+
+            value.addEventListener('mouseout', (event) => {
+                event.target.classList.remove('wiggle')
+
+            })
+        })
+    </script>
     <!-- Footer-->
     <footer class="text-center text-lg-start bg-light text-muted">
         <!-- Copyright -->

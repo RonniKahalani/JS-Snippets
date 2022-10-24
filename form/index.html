@@ -63,8 +63,10 @@
         <!-- Jumbotron -->
         <div class="p-5 text-center bg-light">
             <h1 class="mb-3">JSON data from a HTML form</h1>
-            <h4 class="mb-3">Shows how to extract HTML form data, in JSON format, ready to send as body in a fetch request.</h4>
-            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/form" target="_blank" role="button">View Code</a>
+            <h4 class="mb-3">Shows how to extract HTML form data, in JSON format, ready to send as body in a fetch
+                request.</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/form"
+                target="_blank" role="button">View Code</a>
         </div>
         <!-- Jumbotron -->
     </header>
@@ -76,27 +78,43 @@
                 <h5 class="card-title">Form</h5>
 
                 <form id="form" class="form container">
+                    <div class="row">
+                        <div class="col card rounded m-2 p-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Dates</h5>
 
-                    <div class="col card rounded m-2 p-2">
-                        <div class="card-body">
-                            <h5 class="card-title">Dates</h5>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <label for="startDate">StartDate</label><br>
+                                        <input class="form-control" id="startDate" name="startDate" type="date"
+                                            placeholder="yyyy-mm-dd" required>
+                                    </div>
 
-                            <div class="row">
-                                <div class="form-group col">
-                                    <label for="startDate">StartDate</label><br>
-                                    <input class="form-control" id="startDate" name="startDate" type="date"
-                                        placeholder="yyyy-mm-dd" required>
+                                    <div class="form-group col">
+                                        <label for="endDate">End Date</label><br>
+                                        <input class="form-control" id="endDate" name="endDate" type="date"
+                                            placeholder="yyyy-mm-dd" required>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col card rounded m-2 p-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Checklist</h5>
 
-                                <div class="form-group col">
-                                    <label for="endDate">End Date</label><br>
-                                    <input class="form-control" id="endDate" name="endDate" type="date"
-                                        placeholder="yyyy-mm-dd" required>
+                                <div class="row">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="check1" id="check1"
+                                            title="Click to toggle the state.">
+                                        <label class="check-label" for="check1">Check 1</label><br>
+                                        <input type="checkbox" class="check2" id="check2"
+                                            title="Click to toggle the state.">
+                                        <label class="check-label" for="check2">Check 2</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
 
                         <div class="col card rounded m-2 p-2">
@@ -119,22 +137,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col card rounded m-2 p-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Checklist</h5>
-
-                                <div class="row">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="check1" id="check1"
-                                            title="Click to toggle the state.">
-                                        <label class="check-label" for="check1">Check 1</label><br>
-                                        <input type="checkbox" class="check2" id="check2"
-                                            title="Click to toggle the state.">
-                                        <label class="check-label" for="check2">Check 2</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="col card rounded m-2 p-2">
                             <div class="card-body">
                                 <h5 class="card-title">Image File(s)</h5>
@@ -160,9 +163,9 @@
             </div>
         </div>
 
-        <div class="col card rounded">
-            <div class="panel-heading mt-3">
-                <h3 class="panel-title">JSON Preview</h3>
+        <div class="col card rounded m-2 p-2">
+            <div class="card-body">
+                <h5 class="card-title">JSON Preview</h5>
             </div>
             <div class="card-body">
                 <div id="preview" class="form-control">Submit the form and you'll see the JSON data here. </div>
@@ -181,8 +184,13 @@
             })
         });
 
+        document.forms['form'].onsubmit = (event) => {
+            event.preventDefault();
+            let json = new JSONForm(event.target).json();
+            document.getElementById("preview").innerText = JSON.stringify(json, null, '\t')
+        }
     </script>
-        
+
     <!-- Footer-->
     <footer class="text-center text-lg-start bg-light text-muted">
         <!-- Copyright -->

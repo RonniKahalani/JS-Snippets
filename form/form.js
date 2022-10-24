@@ -2,7 +2,7 @@
 /**
  * 
  */
-class Form {
+class JSONForm {
     constructor(form) {
         this.form = form
     }
@@ -25,10 +25,4 @@ class Form {
 
         return Object.fromEntries(formData)
     }
-}
-
-document.forms['form'].onsubmit = (event) => {
-    event.preventDefault();
-    let json = new Form(event.target).json();
-    document.getElementById("preview").innerText = JSON.stringify(json, null, '\t')
 }
