@@ -10,8 +10,8 @@ You need a feature to manipulate the DOM elements with JavaScript.
 
 ## Exercise
 Make a web page that 
-- Changes the body backgroud to a random color
-    - First after 5 seconds after page refresh should the color change (using setTimeout(...) funtion).
-    -  After the 5 second wait, the color should change every second (using setInterval function).
+- Changes the body background to a random color (see the snippet code)
+    - When the page is loaded it should wait 5 seconds before triggering interval based color changes (using setTimeout(...) function).
+    -  After the 5 second wait, after the page load, the color should change every second (using setInterval function).
     
 [See setInterval/setTimeout examples](https://javascript.info/settimeout-setinterval)

@@ -32,5 +32,6 @@ This is how it looks after adding some image files.
 ![image](https://user-images.githubusercontent.com/8819076/196125064-bffde655-d7b7-4f15-951a-916efc75378e.png)
 
 ## Exercise
-Make a web page with a form and file upload input field, that allows multiple file selection and write the selected file names to the console.
-If you're motivated, try to implement a nice drop interface, via the Dropify tool.
+Make a web page with a form and file upload input field, that allows multiple file selection - On form submit write the selected filenames to the console.
+
+If you're motivated, try to implement a nice drop interface, via the dropify.js library used in this snippet.
