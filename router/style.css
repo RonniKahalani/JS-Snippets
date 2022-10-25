@@ -1,6 +1,5 @@
 #card-login {
     display: none;
-    width: 300px;
     position: absolute;
     right: 10px;
     top: 0px;
@@ -8,8 +7,19 @@
 
 #card-logout {
     display: none;
-    width: 300px;
     position: absolute;
     right: 10px;
     top: 0px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+#restricted-anchor {
+    color:white;
+}
+
+#login-username {
+    margin-right: 5px;;
 }

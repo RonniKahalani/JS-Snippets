@@ -27,7 +27,6 @@ function cloneHtmlTemplate(id) {
  * Home route action.
  */
 function home() {
-
     $('#view').html(cloneHtmlTemplate('template-home'));
 }
 
@@ -37,20 +36,18 @@ function home() {
 function about() {
     $('#view').html(cloneHtmlTemplate('template-about'));
 };
+
 /**
  * Login route action.
  */
 function login() {
     let username = $('#username').val()
     let password = $('#password').val()
-
     let roles = ['Admin', 'Developer', 'User']
 
     createUserSession(username, btoa(password), roles)
     toggleLoginUI(false)
 
-   // $('#view').html(`<h1>Welcome back ${username}</h1>
-    //<p>Roles: ${roles}</p>`);
     home()
 };
 
@@ -116,6 +113,7 @@ function restricted() {
         }
         div.appendChild(tableClone)
         $('#view').html(div);
+
     } else {
         $('#view').html(`<h1>You're not logged in, which is required for this page.</h1>`);
     }

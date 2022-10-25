@@ -46,11 +46,16 @@ function toggleLoginUI(show) {
     $(ROUTER_LOGIN_UI).show();
     $(ROUTER_LOGOUT_UI).hide();
     $(ROUTER_RESTRICTED_ANCHOR).addClass('disabled');
+    $(ROUTER_RESTRICTED_ANCHOR).addClass('btn-danger');
+    $(ROUTER_RESTRICTED_ANCHOR).removeClass('btn-success');
+
   } else {
     $(ROUTER_LOGIN_UI).hide();
     $(ROUTER_USERNAME_UI).html(`${user? user.username : '???'}`).show();
     $(ROUTER_LOGOUT_UI).show();
     $(ROUTER_RESTRICTED_ANCHOR).removeClass('disabled');
+    $(ROUTER_RESTRICTED_ANCHOR).addClass('btn-success');
+    $(ROUTER_RESTRICTED_ANCHOR).removeClass('btn-danger');
   }
 }
 /**
