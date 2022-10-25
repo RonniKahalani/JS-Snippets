@@ -8,14 +8,17 @@ class NavigatorDump {
 
     dumpValues() {
 
-        console.log(`Language: ${navigator.language}`)
-        console.log(`Languages: ${navigator.languages}`)
-        console.log(`Cookies enabled: ${navigator.cookieEnabled}`)
-        console.log(`Device memory: ${navigator.deviceMemory} gigabytes`)
-        console.log(`Online: ${navigator.onLine}`)
-        console.log(`User agent (browser): ${navigator.userAgent}`)
-        console.log(`Vendor: ${navigator.vendor}`)
-        console.log(`Platform: ${navigator.platform}`)
+        let output = document.getElementById('output')
+
+        output.innerHTML = ''
+        output.innerHTML += `Language: ${navigator.language}<br>`
+        output.innerHTML += `Languages: ${navigator.languages}<br>`
+        output.innerHTML += `Cookies enabled: ${navigator.cookieEnabled}<br>`
+        output.innerHTML += `Device memory: ${navigator.deviceMemory} gigabytes<br>`
+        output.innerHTML += `Online: ${navigator.onLine}<br>`
+        output.innerHTML += `User agent (browser): ${navigator.userAgent}<br>`
+        output.innerHTML += `Vendor: ${navigator.vendor}<br>`
+        output.innerHTML += `Platform: ${navigator.platform}<br>`
 
         let batteryIsCharging = false;
 
@@ -24,7 +27,7 @@ class NavigatorDump {
 
             battery.addEventListener('chargingchange', () => {
                 batteryIsCharging = battery.charging;
-                console.log(`Battery charging: ${batteryIsCharging}`)
+                output.innerHTML += `Battery charging: ${batteryIsCharging}<br>`
             });
         });
 
@@ -38,29 +41,28 @@ class NavigatorDump {
 
         // To test this, try to disconnect your network connection and connect it again. This should trigger this the change.
         navigator.connection.addEventListener("change", (e) => {
-            console.log("Network status change", navigator.connection);
+            output.innerHTML += `Network status change ${navigator.connection}<br>`;
         })
 
+        // This will trigger a allow/block dialog, to access the system clipboard.
+        navigator.clipboard.readText().then(
+            (clipText) => output.innerHTML += `Clipboard text: ${clipText}<br>`);
 
-        /*
-                // This will trigger a allow/block dialog, to access the system clipboard.
-                navigator.clipboard.readText().then(
-                    (clipText) => console.log(clipText));
-        */
     }
 
 
     positionSuccess(pos) {
         const crd = pos.coords;
+        let output = document.getElementById('output')
 
-        console.log('Your current position is:');
-        console.log(`Latitude : ${crd.latitude}`);
-        console.log(`Longitude: ${crd.longitude}`);
-        console.log(`More or less ${crd.accuracy} meters.`);
+        output.innerHTML += 'Your current position is:<br>'
+        output.innerHTML += `Latitude : ${crd.latitude}<br>`
+        output.innerHTML += `Longitude: ${crd.longitude}<br>`
+        output.innerHTML += `More or less ${crd.accuracy} meters.<br>`
     }
 
     positionError(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
+        alert(`ERROR(${err.code}): ${err.message}`);
     }
 }
 var navigatorDump = new NavigatorDump()

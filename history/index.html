@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <title>History</title>
 
     <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link media="all" href="style.css" rel="stylesheet">
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
     <link media="all" href="../master.css" rel="stylesheet">
-    <script src="template.js" defer></script>
+    <link media="all" href="style.css" rel="stylesheet">
+    <script src="history.js" defer></script>
 </head>
 
 <body>
+
     <header>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -28,7 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarExample01">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                            <a class="nav-link" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../dom/index.html">DOM</a>
@@ -60,39 +62,49 @@
 
         <!-- Jumbotron -->
         <div class="p-5 text-center bg-light">
-            <h1 class="mb-3">Template</h1>
-            <h4 class="mb-3">Shows how to use HTML Templates.</h4>
-            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/template"
+            <h1 class="mb-3">History</h1>
+            <h4 class="mb-3">Shows how to use the history object.</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/history"
                 target="_blank" role="button">View Code</a>
         </div>
         <!-- Jumbotron -->
     </header>
 
     <div class="container">
-        <div class="card rounded m-2 p-2">
-            <div class="card-body">
-                <h5 class="card-title">Generating content from templates</h5>
-                <p>Note: You need to run this page via GoLive (run as server, NOT local debug) from the bottom statusbar in VS Code, for the external template to be allowed loaded.</p>
-                <img width="600" src="https://user-images.githubusercontent.com/8819076/197718430-14f94292-ca4d-4ceb-aa24-15cec23cae73.png">
-            </div>
-            
-            <div id="target" class="m-3">
-            </div>
-            <div class="row">
-                <div class="col-2">
-                    <button class="btn btn-sm btn-primary"
-                        onclick="new TemplateHandler().loadFromFile('./template.html','#externalTemplate', '#target')">From
-                        External Template File</button>
-                </div>
-                <div class="col">
 
-                    <button class="btn btn-sm btn-primary"
-                        onclick="new TemplateHandler().loadFromDocument('#embeddedTemplate','#target')">From
-                        Template in Document</button>
+        <div class="row">
+
+            <div class="card rounded m-2 p-2 col">
+                <div class="card-body">
+                    <h5 class="card-title">History</h5>
+
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-sm btn-primary mx-2"
+                                onclick="historyHandler.back()">Backward</button>
+                        </div>
+                        
+                        <div class="col">
+
+                            <button class="btn btn-sm btn-primary mx-2" onclick="historyHandler.go()">Go
+                                to</button>
+                                <input id="goCount" name="goCount" type="number" value="-2">
+                                <label for="goCount">Example usage<br>
+                                    -2 = go back 2 pages<br>
+                                    2 = go forward 2 pages</label>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-sm btn-primary float-end mx-2"
+                            onclick="historyHandler.forward()">Forward</button>
+                        </div>
+                    </div>
+
+                    <div id="output"></div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Footer-->
     <footer class="text-center text-lg-start bg-light text-muted">
         <!-- Copyright -->
@@ -101,14 +113,6 @@
             <a class="text-reset fw-bold" href="https://learningisliving.dk/">LearningIsLiving.dk</a>
         </div>
     </footer>
-
-    <template id="embeddedTemplate">
-        <div id="embeddedRoot">
-            Default text that should be replaced.
-        </div>
-    </template>
-
-    <div id="fileTemplate"></div>
 </body>
 
 </html>
