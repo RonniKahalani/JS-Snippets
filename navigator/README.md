@@ -10,6 +10,6 @@ You need a feature to get relevant navigator (client platform) information.
 - cookies.
 
 ## Exercise
-Try to make a nice UI web interface that shows/tracks some of the navigator properties / events/ status, of your own choice.
+Try to make a nice UI web interface that shows/tracks some of the navigator/browser properties / events/ status, of your own choice.
 
 
