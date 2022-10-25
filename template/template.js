@@ -30,7 +30,6 @@ class TemplateHandler {
             $('#fileTemplate').load("template.html", () => {
 
                 // Waiting for the data to be loaded, and now its ready.
-
                 let template = document.querySelector(templateId)
                 let clone = template.content.cloneNode(true)
                 let root = clone.querySelector("#externalRoot")
@@ -39,8 +38,6 @@ class TemplateHandler {
                 let target = document.querySelector(targetId)
                 target.appendChild(clone)
             })
-
-        
-      
         }
 }
+var templateHandler = new TemplateHandler()

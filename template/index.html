@@ -34,6 +34,21 @@
                             <a class="nav-link" href="../dom/index.html">DOM</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="../navigator/index.html">Navigator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../location/index.html">Location</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../history/index.html">History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../screen/index.html">Screen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../template/index.html">Template</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="../form/index.html">Form</a>
                         </li>
                         <li class="nav-item">
@@ -47,10 +62,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../animate/index.html">Animate</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
                         </li>
                     </ul>
                 </div>
@@ -73,7 +84,7 @@
             <div class="card-body">
                 <h5 class="card-title">Generating content from templates</h5>
                 <p>Note: You need to run this page via GoLive (run as server, NOT local debug) from the bottom statusbar in VS Code, for the external template to be allowed loaded.</p>
-                <img width="600" src="https://user-images.githubusercontent.com/8819076/197718430-14f94292-ca4d-4ceb-aa24-15cec23cae73.png">
+                <img width="400" src="https://user-images.githubusercontent.com/8819076/197718430-14f94292-ca4d-4ceb-aa24-15cec23cae73.png">
             </div>
             
             <div id="target" class="m-3">
@@ -81,13 +92,13 @@
             <div class="row">
                 <div class="col-2">
                     <button class="btn btn-sm btn-primary"
-                        onclick="new TemplateHandler().loadFromFile('./template.html','#externalTemplate', '#target')">From
+                        onclick="templateHandler.loadFromFile('./template.html','#externalTemplate', '#target')">From
                         External Template File</button>
                 </div>
                 <div class="col">
 
                     <button class="btn btn-sm btn-primary"
-                        onclick="new TemplateHandler().loadFromDocument('#embeddedTemplate','#target')">From
+                        onclick="templateHandler.loadFromDocument('#embeddedTemplate','#target')">From
                         Template in Document</button>
                 </div>
             </div>
@@ -110,5 +121,4 @@
 
     <div id="fileTemplate"></div>
 </body>
-
 </html>

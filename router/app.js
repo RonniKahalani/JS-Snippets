@@ -6,6 +6,7 @@ template('about', about)
 template('login', login)
 template('logout', logout)
 template('restricted', restricted)
+template('snippets', snippets)
 
 /**
  * Defines the #/... url routes and the templeas they match..
@@ -15,6 +16,7 @@ route('/about', 'about');
 route('/login', 'login');
 route('/logout', 'logout');
 route('/restricted', 'restricted');
+route('/snippets', 'snippets');
 
 function cloneHtmlTemplate(id) {
     let div = document.createElement('div');
@@ -118,3 +120,10 @@ function restricted() {
         $('#view').html(`<h1>You're not logged in, which is required for this page.</h1>`);
     }
 };
+
+/**
+ * Snippets.
+ */
+ function snippets() {
+    location.href = '../index.html'
+}
