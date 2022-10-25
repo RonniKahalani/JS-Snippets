@@ -100,6 +100,11 @@ class AsyncHandler {
  * Runs in the main thread and freezes the browser.
  */
     startSync() {
+
+        if(!confirm("This action will stall the browser, because updating the browser UI runs in the main thread.\n Do you want to continue?")) {
+            return
+        }
+        
         for (let i = 0; i < 3000; i++) {
             let randX = Math.floor(Math.random() * window.screen.availWidth);
             let randY = Math.floor(Math.random() * window.screen.availHeight);

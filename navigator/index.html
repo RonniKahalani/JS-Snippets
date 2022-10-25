@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Async</title>
+    <title>Navigator</title>
 
     <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -13,7 +13,7 @@
 
     <link media="all" href="../master.css" rel="stylesheet">
     <link media="all" href="style.css" rel="stylesheet">
-    <script src="async.js" defer></script>
+    <script src="navigator.js" defer></script>
 </head>
 
 <body>
@@ -50,9 +50,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../animate/index.html">Animate</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../async/index.html">Async</a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
@@ -65,9 +62,9 @@
 
         <!-- Jumbotron -->
         <div class="p-5 text-center bg-light">
-            <h1 class="mb-3">Async</h1>
-            <h4 class="mb-3">Shows how to use async (threaded) functions.</h4>
-            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/async"
+            <h1 class="mb-3">Navigator</h1>
+            <h4 class="mb-3">Shows how to use the navigator object.</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/naivgator"
                 target="_blank" role="button">View Code</a>
         </div>
         <!-- Jumbotron -->
@@ -79,13 +76,9 @@
 
             <div class="card rounded m-2 p-2 col">
                 <div class="card-body">
-                    <h5 class="card-title">Preview Area</h5>
-                    <button accesskey="c" class="btn btn-sm btn-primary float-end mx-2" onclick="asyncHandler.clear()">Clear</button>
-                    <button class="btn btn-sm btn-danger float-end" onclick="asyncHandler.startSync()">Go (sync)</button>
-                    <button class="btn btn-sm btn-primary float-end mx-2" onclick="asyncHandler.startAsync()">Go (async)</button>
+                    <h5 class="card-title">Navigator</h5>
+                    <button class="btn btn-sm btn-primary float-end mx-2" onclick="navigatorDump.dumpValues()">Dump values to console log</button>
                 </div>
-                
-                <div id="output"></div>
             </div>
         </div>
     </div>
