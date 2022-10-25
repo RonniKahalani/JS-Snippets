@@ -1,0 +1,112 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+
+    <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link media="all" href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+    <link media="all" href="../master.css" rel="stylesheet">
+    <script src="template.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarExample01">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../dom/index.html">DOM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../form/index.html">Form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../file/index.html">File</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../rest/index.html">REST</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../router/index.html">Router</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../animate/index.html">Animate</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+
+        <!-- Jumbotron -->
+        <div class="p-5 text-center bg-light">
+            <h1 class="mb-3">Template</h1>
+            <h4 class="mb-3">Shows how to use HTML Templates.</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/template"
+                target="_blank" role="button">View Code</a>
+        </div>
+        <!-- Jumbotron -->
+    </header>
+
+    <div class="container">
+        <div class="card rounded m-2 p-2">
+            <div class="card-body">
+                <h5 class="card-title">Generated from templates<br>Note: You need to run this page via GoLive (run as server, NOT local debug) in the bottom of the VS Code bottom status bar for the </h5>
+            </div>
+            
+            <div id="target" class="m-3">
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <button class="btn btn-sm btn-primary"
+                        onclick="new TemplateHandler().loadFromFile('./template.html','#externalTemplate', '#target')">From
+                        External Template File</button>
+                </div>
+                <div class="col">
+
+                    <button class="btn btn-sm btn-primary"
+                        onclick="new TemplateHandler().loadFromDocument('#embeddedTemplate','#target')">From
+                        Template in Document</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer-->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2022 Copyright:
+            <a class="text-reset fw-bold" href="https://learningisliving.dk/">LearningIsLiving.dk</a>
+        </div>
+    </footer>
+
+    <template id="embeddedTemplate">
+        <div id="embeddedRoot">
+            Default text that should be replaced.
+        </div>
+    </template>
+
+    <div id="fileTemplate"></div>
+</body>
+
+</html>
