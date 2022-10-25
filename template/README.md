@@ -1,7 +1,7 @@
 # JS-Snippets - template
 Shows how to use HTML templates.
 
-## Note:You need to run this snippet via GoLive (run as server, NOT local debug) via the GoLive "button" in the VS Code bottom status bar, for the external template is allowed to be loaded.
+#### Note: You need to run this page via GoLive (run as server, NOT local debug) from the bottom statusbar in VS Code, for the external template to be allowed loaded.
 ![image](https://user-images.githubusercontent.com/8819076/197718430-14f94292-ca4d-4ceb-aa24-15cec23cae73.png)
 
 
