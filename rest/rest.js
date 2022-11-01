@@ -13,14 +13,16 @@ class RestRequest {
      */
     async execute(url, settings, callback) {
 
-        let data = {}
+        let data = null
         try {
 
             let response = await fetch(url, settings)
             data = await response.json()
             
             // Call the supplied callback function with the json data.
-            callback(data)
+            if(callback != undefined) {
+                callback(data)
+            }
             
         } catch (error) {
             console.log(error)
