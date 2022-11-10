@@ -19,6 +19,17 @@ class NavigatorDump {
         output.innerHTML += `User agent (browser): ${navigator.userAgent}<br>`
         output.innerHTML += `Vendor: ${navigator.vendor}<br>`
         output.innerHTML += `Platform: ${navigator.platform}<br>`
+        output.innerHTML += `Connection<br>`
+        output.innerHTML += `- downlink: ${navigator.connection.downlink}<br>`
+        
+        let downlinkMaxValue = 'not supported'
+        if('downlinkMax' in navigator.connection){
+            downlinkMaxValue = navigator.connection.downlinkMax;
+        }
+        output.innerHTML += `- downlink Max: ${downlinkMaxValue}<br>`
+        output.innerHTML += `- effectiveType: ${navigator.connection.effectiveType}<br>`
+        output.innerHTML += `- rtt: ${navigator.connection.rtt}<br>`
+        output.innerHTML += `- saveData: ${navigator.connection.saveData}<br>`
 
         let batteryIsCharging = false;
 

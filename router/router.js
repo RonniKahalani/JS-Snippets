@@ -1,3 +1,8 @@
+function testRouter(value) {
+  alert(value)
+}
+
+
 const ROUTER_LOGIN_UI = '#card-login'
 const ROUTER_LOGOUT_UI = '#card-logout'
 const ROUTER_RESTRICTED_ANCHOR = '#restricted-anchor'

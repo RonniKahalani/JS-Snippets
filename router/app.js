@@ -1,21 +1,29 @@
+
+
+function testApp(value) {
+    testRouter(value)
+}
+
 /**
  * Defines the templates used.
  */
 template('home', home)
-template('about', about)
+template('rytter', rytter)
+template('etaper', etaper)
 template('login', login)
 template('logout', logout)
-template('restricted', restricted)
+template('admin', admin)
 template('snippets', snippets)
 
 /**
  * Defines the #/... url routes and the templeas they match..
  */
 route('/', 'home');
-route('/about', 'about');
+route('/rytter', 'rytter');
+route('/etaper', 'etaper');
 route('/login', 'login');
 route('/logout', 'logout');
-route('/restricted', 'restricted');
+route('/admin', 'admin');
 route('/snippets', 'snippets');
 
 function cloneHtmlTemplate(id) {
@@ -32,11 +40,17 @@ function home() {
     $('#view').html(cloneHtmlTemplate('template-home'));
 }
 
+function etaper() {
+    let x = 10
+    $('#view').html(`<b>Dette er en liste af ${x} etaper</b>`);
+}
+
+
 /**
  * About route action.
  */
-function about() {
-    $('#view').html(cloneHtmlTemplate('template-about'));
+function rytter() {
+    $('#view').html(cloneHtmlTemplate('template-rytter'));
 };
 
 /**
@@ -65,7 +79,7 @@ function logout() {
 /**
  * Restricted route action.
  */
-function restricted() {
+function admin() {
 
     if (isLoggedIn()) {
         let div = document.createElement('div');
@@ -95,7 +109,7 @@ function restricted() {
             price: 65000
         }];
 
-        div.innerHTML = '<h1>Restricted</h1>';
+        div.innerHTML = '<h1>Admin</h1>';
 
         const tableTemplate = document.querySelector('#template-producttable');
         const tableClone = tableTemplate.content.cloneNode(true);
