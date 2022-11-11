@@ -1,31 +1,48 @@
-
-
-function testApp(value) {
-    testRouter(value)
-}
+'use strict'
 
 /**
- * Defines the templates used.
+ * Route template constants.
  */
-template('home', home)
-template('rytter', rytter)
-template('etaper', etaper)
-template('login', login)
-template('logout', logout)
-template('admin', admin)
-template('snippets', snippets)
+const ROUTE_TEMPLATE_KEY_HOME = 'home'
+const ROUTE_TEMPLATE_KEY_ABOUT = 'about'
+const ROUTE_TEMPLATE_KEY_LOGIN = 'login'
+const ROUTE_TEMPLATE_KEY_LOGOUT = 'logout'
+const ROUTE_TEMPLATE_KEY_ADMIN = 'admin'
+const ROUTE_TEMPLATE_KEY_SNIPPETS = 'snippets'
 
 /**
- * Defines the #/... url routes and the templeas they match..
+ * Route constants.
  */
-route('/', 'home');
-route('/rytter', 'rytter');
-route('/etaper', 'etaper');
-route('/login', 'login');
-route('/logout', 'logout');
-route('/admin', 'admin');
-route('/snippets', 'snippets');
+const ROUTE_HOME = '/'
+const ROUTE_ABOUT = '/about'
+const ROUTE_LOGIN = '/login'
+const ROUTE_LOGOUT = '/logout'
+const ROUTE_ADMIN = '/admin'
+const ROUTE_SNIPPETS = '/snippets'
 
+/**
+ * Defines the routing templates used.
+ */
+template(ROUTE_TEMPLATE_KEY_HOME, home)
+template(ROUTE_TEMPLATE_KEY_ABOUT, about)
+template(ROUTE_TEMPLATE_KEY_LOGIN, login)
+template(ROUTE_TEMPLATE_KEY_LOGOUT, logout)
+template(ROUTE_TEMPLATE_KEY_ADMIN, admin)
+template(ROUTE_TEMPLATE_KEY_SNIPPETS, snippets)
+
+/**
+ * Defines the #/... url routes and the templates they match..
+ */
+route(ROUTE_HOME, ROUTE_TEMPLATE_KEY_HOME);
+route(ROUTE_ABOUT, ROUTE_TEMPLATE_KEY_ABOUT);
+route(ROUTE_LOGIN, ROUTE_TEMPLATE_KEY_LOGIN);
+route(ROUTE_LOGOUT, ROUTE_TEMPLATE_KEY_LOGOUT);
+route(ROUTE_ADMIN, ROUTE_TEMPLATE_KEY_ADMIN);
+route(ROUTE_SNIPPETS, ROUTE_TEMPLATE_KEY_SNIPPETS);
+
+/**
+ * Clones an embedded HTML template, from the HTML file, via an id.
+ */
 function cloneHtmlTemplate(id) {
     let div = document.createElement('div');
     const template = document.querySelector(`#${id}`);
@@ -40,17 +57,11 @@ function home() {
     $('#view').html(cloneHtmlTemplate('template-home'));
 }
 
-function etaper() {
-    let x = 10
-    $('#view').html(`<b>Dette er en liste af ${x} etaper</b>`);
-}
-
-
 /**
  * About route action.
  */
-function rytter() {
-    $('#view').html(cloneHtmlTemplate('template-rytter'));
+function about() {
+    $('#view').html(cloneHtmlTemplate('template-about'));
 };
 
 /**

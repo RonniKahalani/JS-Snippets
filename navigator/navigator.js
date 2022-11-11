@@ -21,9 +21,9 @@ class NavigatorDump {
         output.innerHTML += `Platform: ${navigator.platform}<br>`
         output.innerHTML += `Connection<br>`
         output.innerHTML += `- downlink: ${navigator.connection.downlink}<br>`
-        
+
         let downlinkMaxValue = 'not supported'
-        if('downlinkMax' in navigator.connection){
+        if ('downlinkMax' in navigator.connection) {
             downlinkMaxValue = navigator.connection.downlinkMax;
         }
         output.innerHTML += `- downlink Max: ${downlinkMaxValue}<br>`
@@ -77,3 +77,16 @@ class NavigatorDump {
     }
 }
 var navigatorDump = new NavigatorDump()
+
+
+
+
+
+document.forms['form'].onsubmit = (event) => {
+    event.preventDefault(); // Cancel default event behavior
+    const formData = new FormData(event.target);
+    const values = Object.fromEntries(formData)
+    const json = JSON.stringify(values)
+
+    document.getElementById("preview").innerText = JSON.stringify(json)
+}
