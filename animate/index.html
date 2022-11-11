@@ -74,7 +74,8 @@
         <div class="p-5 text-center bg-light">
             <h1 class="mb-3">Animate</h1>
             <h4 class="mb-3">Shows how to animate HTML elements, via CSS and JavaScript.</h4>
-            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/animate" target="_blank" role="button">View Code</a>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/animate"
+                target="_blank" role="button">View Code</a>
         </div>
         <!-- Jumbotron -->
     </header>
@@ -109,8 +110,10 @@
                 </div>
                 <div class="col-3 my-auto">
                     <button class="btn btn-sm btn-primary" type="submit">Spawn bubbles</button>
-                    <button id="playBubbles" class="btn btn-sm btn-primary" onclick="bubbleSpawner.playBubbles()">Sound on</button>
-                    <button id="pauseBubbles" class="btn btn-sm btn-primary disabled" onclick="bubbleSpawner.pauseBubbles()">Sound off</button>
+                    <button id="playBubbles" class="btn btn-sm btn-primary" onclick="bubbleSpawner.playBubbles()">Sound
+                        on</button>
+                    <button id="pauseBubbles" class="btn btn-sm btn-primary disabled"
+                        onclick="bubbleSpawner.pauseBubbles()">Sound off</button>
 
                 </div>
             </form>
@@ -161,42 +164,48 @@
     </div>
 
     <audio id="audio-bubbles" autoplay preload loop>
-        <source src="bubbles.mp3" type="audio/mpeg">
+        <source src="media/bubbles.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <audio id="audio-fish" preload>
-        <source src="baby-laugh.mp3" type="audio/mpeg">
+        <source src="media/baby-laugh.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <audio id="audio-blue-fish" preload>
-        <source src="fart.mp3" type="audio/mpeg">
+        <source src="media/fart.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <audio id="audio-red-fish" preload>
-        <source src="cough.mp3" type="audio/mpeg">
+        <source src="media/cough.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <audio id="audio-white-fish" preload>
-        <source src="scream.mp3" type="audio/mpeg">
+        <source src="media/scream.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
     <script>
+        /**
+         *  Validates input values. 
+         */
         function validateNumberInput(elem) {
             if (elem.value.length > elem.maxLength) {
                 elem.value = elem.value.slice(0, elem.maxLength);
             }
         }
 
+        // Spawns bubbles when the browser have fully loaded.
         window.addEventListener('load', (event) => {
             bubbleSpawner.spawnBubbles()
         })
 
+        // Spawns bubbles when the form is submitted.
         document.forms['form-bubbles'].addEventListener('submit', (event) => {
             event.preventDefault()
             bubbleSpawner.spawnBubbles();
         })
     </script>
-        
+
     <!-- Footer-->
     <footer class="text-center text-lg-start bg-light text-muted">
         <!-- Copyright -->
