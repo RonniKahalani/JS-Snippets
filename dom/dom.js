@@ -23,7 +23,7 @@ class DOM {
      */
     createElement() {
         let element = document.createElement('img')
-        element.setAttribute('src', './kitty.gif')
+        element.setAttribute('src', './media/kitty.gif')
         this.previewElement.append(element)
     }
 
