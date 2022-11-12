@@ -1,7 +1,4 @@
-function testRouter(value) {
-  alert(value)
-}
-
+'use strict'
 
 const ROUTER_LOGIN_UI = '#card-login'
 const ROUTER_LOGOUT_UI = '#card-logout'
