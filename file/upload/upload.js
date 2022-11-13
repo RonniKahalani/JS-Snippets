@@ -58,7 +58,9 @@ class ImageUploader {
             gallery.innerHTML = ''
 
             data.forEach(element => {
-                let img = document.createElement("img")
+
+                let imgFromTemplate = cloneHtmlTemplate('template-image')
+                let img = imgFromTemplate.querySelector('img')
                 img.setAttribute("src", element.image)
                 img.onclick = (e) => {
 
@@ -68,7 +70,17 @@ class ImageUploader {
                         this.deleteImage(element.id)
                     }
                 }
-                gallery.appendChild(img)
+
+                let metaDiv = imgFromTemplate.querySelector('.meta')
+                metaDiv.innerHTML += `<b>Created</b>: ${new Date(element.created).toLocaleString()}<br>`
+                metaDiv.innerHTML += `<b>User</b>: ${element.user}<br>`
+                metaDiv.innerHTML += `<b>Filename</b>: ${element.name}<br>`
+                metaDiv.innerHTML += `<b>Original size</b>: ${element.size} bytes<br>`
+                metaDiv.innerHTML += `<b>Current size</b>: ${element.image.length} bytes<br>`
+                metaDiv.innerHTML += `<b>Title</b>: ${element.title}<br>`
+                metaDiv.innerHTML += `<b>Description</b>: ${element.description}<br>`
+
+                gallery.appendChild(imgFromTemplate)
             });
 
         } catch (error) {
@@ -93,7 +105,9 @@ class ImageUploader {
 
             let response = await fetch('http://localhost:8080/api/v1/image/' + index, settings)
             data = await response.json()
+
             this.updateGallery()
+        
         } catch (error) {
             console.log(error)
         }

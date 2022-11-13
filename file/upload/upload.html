@@ -1,0 +1,235 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+
+    <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link media="all" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+    <script src="../../router/router.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="upload.js" defer></script>
+
+    <link media="all" href="../../master.css" rel="stylesheet">
+    <link media="all" href="../../router/style.css" rel="stylesheet">
+    <link media="all" href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link btn-primary" href="#">Home</a>
+                        </li>
+
+                        <li class="nav-item btn-primary">
+                            <a class="nav-link" href="#/about">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a id="restricted-anchor" class="nav-link disabled" href="#/admin">Admin</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div id="card-logout" style="margin:15px;">
+                <div class="row">
+                    <div class="col-sm float-end">
+                        <b>Welcome</b> <span id="login-username"></span>
+                        <a class="btn btn-sm btn-primary" href="#/logout" style="float:right">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div id="card-login" style="margin:15px;">
+                <form id="form-login" class="form-inline">
+                    <div clasxs="row">
+
+                        <input id="username" class="form-control-sm" type="text" placeholder="Username"
+                            aria-label="Username">
+                        <input id="password" class="form-control-sm" type="password" placeholder="Password"
+                            aria-label="Password">
+                        <button class="btn btn-sm btn-primary my-2 my-sm-0" type="submit">Login</button>
+                    </div>
+                    <div class="row float-end">
+                        Input whatever to login.
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <!-- Navbar -->
+
+        <!-- Jumbotron -->
+        <div class="p-5 text-center bg-light">
+            <h1 class="mb-3">Image File upload</h1>
+            <h4 class="mb-3">Shows how to upload files.</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/file/upload"
+                target="_blank" role="button">View Code</a>
+        </div>
+        <!-- Jumbotron -->
+    </header>
+
+    <div class="container">
+
+        <div id="view" class="container"></div>
+
+        <!-- Templates -->
+        <template id="template-upload">
+
+
+
+            <div class="col card rounded m-2 p-2">
+                <div class="card-body">
+                    <h5 class="card-title">Upload Image(s)
+                    </h5>
+                    <form id="meta" class="form">
+                        <div class="row">
+
+                            <label for="user" class="col-2">User</label>
+                            <input id="user" class="col" name="user" type="text" placeholder="Enter username"
+                                minlength="3" maxlength="255">
+                        </div>
+                        <div class="row">
+
+                            <label for="title" class="col-2">Title</label>
+                            <input id="title" class="col" name="title" type="text" placeholder="Enter title"
+                                minlength="5" maxlength="255">
+                        </div>
+                        <div class="row">
+
+                            <label for="description" class="col-2">Description</label>
+                            <input id="description" class="col" name="description" type="text"
+                                placeholder="Enter description" minlength="3" maxlength="255">
+                        </div>
+                        <div class="row">
+                            <label for="image" class="col-2">Image(s)</label>
+
+                            <input id="image" class="btn btn-primary col" name="image" type="file"
+                                accept="image/png, image/jpeg" multiple>
+                        </div>
+                        <div class="row float-end m-2">
+
+                            <div class="col"></div>
+                            <div class="col">
+                                <button type="reset" id="reset" class="btn btn-primary">Reset</button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" id="submit" class="btn btn-primary">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div id="gallery"></div>
+
+            <script>
+                /**
+                * Event Hooks.
+                */
+                document.getElementById('image').addEventListener("change", (event) => {
+                    imageUploader.setFiles(event.target.files)
+                });
+
+                document.forms["meta"].addEventListener('submit', (event) => {
+                    event.preventDefault()
+                    imageUploader.upload();
+                })
+
+                window.addEventListener('load', (event) => {
+                    imageUploader.updateGallery()
+                })
+            </script>
+
+        </template>
+
+        <template id="template-home">
+            <h2>Home</h2>
+            <div id="gallery"></div>
+        </template>
+
+        <template id="template-image">
+
+            <div class="card row">
+                <table>
+                    <td class="col-2">
+                        <img src="" class="image">
+                    </td>
+                    <td class="col meta">
+                    </td>
+                </table>
+            </div>
+        </template>
+
+        <template id="template-about">
+            <h2>About</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus eros, fringilla ac sem sed,
+                condimentum viverra odio. Quisque dapibus faucibus tortor ac interdum. Etiam laoreet suscipit dictum.
+                Nam commodo ipsum quam, vitae placerat nisi ultrices a. Proin cursus sollicitudin pretium. Morbi egestas
+                justo lectus, at tristique purus ullamcorper ac. Vestibulum pulvinar lacinia leo, at consequat ante. In
+                interdum porta purus. Praesent eget neque porttitor, egestas leo et, dictum neque. Nam tincidunt feugiat
+                tortor, a dignissim enim fringilla ac. Quisque non ante urna. Duis et cursus eros. Morbi finibus iaculis
+                semper. Cras sed mauris semper, pellentesque metus at, varius massa.</p>
+
+            <p>Nullam eleifend ullamcorper odio sed varius. Pellentesque mattis ligula purus, et bibendum orci commodo
+                et. Praesent ultrices semper arcu. Praesent non accumsan arcu. In in euismod quam. Maecenas accumsan
+                nisi vitae ex tristique facilisis. In fermentum augue id venenatis gravida. Nulla maximus ipsum congue
+                urna viverra luctus. Duis congue sagittis ante, sit amet lobortis ligula. Aliquam a nunc vel mi blandit
+                auctor sed vel erat. Aliquam condimentum eget felis vitae laoreet. Sed molestie ex quis congue
+                scelerisque. Nunc eget laoreet ligula, non accumsan risus.</p>
+
+            <p>Aliquam erat volutpat. Mauris eu massa metus. Quisque vel nisl aliquam, lobortis elit vel, dapibus odio.
+                Sed mollis tincidunt sapien vel luctus. Curabitur lacinia justo vel fermentum fringilla. Ut laoreet
+                consequat auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                egestas. Mauris lacinia urna in est cursus commodo. Mauris ultricies aliquam lacus quis vestibulum. Orci
+                varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vulputate luctus
+                odio in suscipit. Phasellus blandit nec urna et condimentum. In in scelerisque ante. Praesent non mi
+                ligula. Donec viverra erat vel nunc placerat maximus. Duis tincidunt eget augue vitae fringilla.</p>
+
+            <p>Maecenas blandit in erat ac imperdiet. Donec quis diam vulputate, convallis augue et, ultrices urna.
+                Integer sagittis leo sed purus tempus, eget condimentum libero elementum. Aliquam vehicula tristique
+                mollis. Nullam congue vitae elit quis facilisis. Nunc ut ligula in nibh dignissim dapibus et at orci.
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ut nulla leo.
+                Donec non rutrum nisi, ut feugiat augue. Ut sit amet diam mi. Nunc semper iaculis libero sollicitudin
+                facilisis. Etiam lacinia, justo et fermentum hendrerit, nisl ante condimentum lacus, sollicitudin
+                sollicitudin nisi dolor id orci. Donec commodo mi vitae dui accumsan porta.</p>
+
+            <p>In sed urna velit. Nam gravida orci quis nunc tristique blandit. Sed eleifend mi mollis ante rhoncus, ut
+                commodo augue pharetra. Curabitur consectetur tellus justo, ac hendrerit urna ultrices nec. Pellentesque
+                sagittis eleifend ex ac maximus. Ut erat est, pulvinar ut felis at, vehicula pharetra leo. Sed egestas
+                et risus a efficitur. Mauris scelerisque, eros non rutrum varius, diam leo interdum libero, vitae
+                consequat magna massa sed ex. Donec sodales libero tellus, ut rutrum nulla finibus ut. Integer ut
+                iaculis nisi, eu euismod tellus. Pellentesque vel quam nec enim suscipit sagittis ac vel lectus. Sed
+                vitae purus lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec nisl lectus, tempus id maximus in, sagittis at metus.</p>
+        </template>
+
+    </div>
+
+    <!-- Footer-->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2022 Copyright:
+            <a class="text-reset fw-bold" href="https://learningisliving.dk/">LearningIsLiving.dk</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
