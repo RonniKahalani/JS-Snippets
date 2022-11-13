@@ -118,7 +118,7 @@ class FileHandler {
                 }
 
                 let fileCount = document.getElementById('fileCount')
-                if(fileCount != null) {
+                if (fileCount != null) {
                     fileCount.innerHTML = files.length
                 }
 
