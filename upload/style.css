@@ -1,0 +1,29 @@
+.image {
+    width: 100%;
+    width: 100%;
+}
+#card-login {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+#card-logout {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+#restricted-anchor {
+    color:white;
+}
+
+#login-username {
+    margin-right: 5px;;
+}

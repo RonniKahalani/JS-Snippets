@@ -9,6 +9,7 @@ class ImageUploader {
      * Default constructor.
      */
     constructor() {
+        this.url = 'http://localhost:8080/api/v1/image/'
         this.selectedFiles = []
     }
 
@@ -25,7 +26,7 @@ class ImageUploader {
         let data = null
         try {
 
-            let response = await fetch('http://localhost:8080/api/v1/image', settings)
+            let response = await fetch(this.url, settings)
             data = await response.json()
 
             this.updateGallery()
@@ -52,7 +53,7 @@ class ImageUploader {
         let data = null
         try {
 
-            let response = await fetch('http://localhost:8080/api/v1/image')
+            let response = await fetch(this.url)
             data = await response.json()
 
             gallery.innerHTML = ''
@@ -62,7 +63,9 @@ class ImageUploader {
                 let imgFromTemplate = cloneHtmlTemplate('template-image')
                 let img = imgFromTemplate.querySelector('img')
                 img.setAttribute("src", element.image)
-                img.onclick = (e) => {
+
+                let btn = imgFromTemplate.querySelector('button')
+                btn.onclick = (e) => {
 
                     // Enabled delete when the image is clicked on, if the user confirms the delete action. 
                     let confirmed = confirm(`Are you sure you want to remove it?`)
@@ -103,7 +106,7 @@ class ImageUploader {
         let data = null
         try {
 
-            let response = await fetch('http://localhost:8080/api/v1/image/' + index, settings)
+            let response = await fetch(this.url + index, settings)
             data = await response.json()
 
             this.updateGallery()
@@ -132,10 +135,12 @@ class ImageUploader {
                 image: data,
             }
             this.postData(postData)
-
         }
     }
 
+    /**
+     * Loads a file, from a file upload input element.
+     */
     loadFile(file) {
 
         return new Promise((resolve, reject) => {
