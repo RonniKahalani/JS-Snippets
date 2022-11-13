@@ -1,11 +1,20 @@
 'use strict'
 
+/**
+ * Uploads local images to a REST backend. 
+ */
 class ImageUploader {
 
+    /**
+     * Default constructor.
+     */
     constructor() {
         this.selectedFiles = []
     }
 
+    /**
+     * Sends a POST request to the backend.
+     */
     async postData(postData) {
         let settings = {
             method: 'POST',
@@ -27,10 +36,16 @@ class ImageUploader {
         return data
     }
 
+    /**
+     * Sets the files that are to be sent to the backend.
+     */
     setFiles(files) {
         this.selectedFiles = files
     }
 
+    /**
+     * Updates the gallery DIV in the HTML iwth the latest images from backend.
+     */
     async updateGallery() {
         let gallery = document.getElementById("gallery")
 
@@ -47,6 +62,7 @@ class ImageUploader {
                 img.setAttribute("src", element.image)
                 img.onclick = (e) => {
 
+                    // Enabled delete when the image is clicked on, if the user confirms the delete action. 
                     let confirmed = confirm(`Are you sure you want to remove it?`)
                     if (confirmed) {
                         this.deleteImage(element.id)
@@ -60,6 +76,9 @@ class ImageUploader {
         }
     }
 
+    /**
+     * Deletes an images from the backend.
+     */
     async deleteImage(index) {
 
         let settings = {
@@ -80,6 +99,9 @@ class ImageUploader {
         }
     }
 
+    /**
+     * Uploads the selected files to the backend.
+     */
     async upload() {
 
         for (let index = 0; index < this.selectedFiles.length; index++) {
@@ -90,6 +112,7 @@ class ImageUploader {
             let postData = {
                 name: file.name,
                 size: file.size,
+                user: document.getElementById('user').value,
                 title: document.getElementById('title').value,
                 description: document.getElementById('description').value,
                 image: data,
