@@ -53,25 +53,10 @@ function cloneHtmlTemplate(id) {
 }
 
 /**
- * Used to cache HTML templates, which enables remembering the values across "pages".
- */
-function getHtmlTemplate(id) {
-    let data = null
-    if(htmlTemplateCache.has(id)) {
-        data = htmlTemplateCache.get(id)
-    } else  {
-        data = cloneHtmlTemplate(id)
-        htmlTemplateCache.set(id, data)
-    }
-
-    return data
-}
-
-/**
  * Home route action.
  */
 function home() {
-    $('#view').html(getHtmlTemplate('template-home'));
+    $('#view').html(cloneHtmlTemplate('template-home'));
     imageUploader.updateGallery()
 }
 
@@ -79,7 +64,7 @@ function home() {
  * About route action.
  */
 function about() {
-    $('#view').html( getHtmlTemplate('template-about'));
+    $('#view').html( cloneHtmlTemplate('template-about'));
 };
 
 /**
@@ -111,7 +96,7 @@ function logout() {
 function admin() {
 
     if (isLoggedIn()) {
-        $('#view').html(getHtmlTemplate('template-upload'));
+        $('#view').html(cloneHtmlTemplate('template-upload'));
 
     } else {
         $('#view').html(`<h1>You're not logged in, which is required for this page.</h1>`);
