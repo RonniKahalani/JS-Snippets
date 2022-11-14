@@ -1,4 +1,4 @@
-JS-Snippets - upload
+# JS-Snippets - upload
 Shows how to upload local images, to a Spring Boot backend.
 
 ## Scenario
