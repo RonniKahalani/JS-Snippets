@@ -17,6 +17,7 @@ class ImageUploader {
      * Sends a POST request to the backend.
      */
     async postData(postData) {
+        
         let settings = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -51,30 +52,38 @@ class ImageUploader {
         let gallery = document.getElementById("gallery")
 
         let data = null
-        try {
+        let response = null
 
-            let response = await fetch(this.url)
+        try {
+            // Get all get images.
+            response = await fetch(this.url)
             data = await response.json()
 
+            // Clear the gallery div content.
             gallery.innerHTML = ''
 
+            // Go through all the returned image objects, dedicate an image HTML template for each image.
             data.forEach(element => {
 
-                let imgFromTemplate = cloneHtmlTemplate('template-image')
-                let img = imgFromTemplate.querySelector('img')
+                let clone = cloneHtmlTemplate('template-image')
+                // Locate the image tag.
+                let img = clone.querySelector('img')
+                // Set the image source to the current element image propert (a Base64 encoded image in string format, directly applicable as a image source)
                 img.setAttribute("src", element.image)
 
-                let btn = imgFromTemplate.querySelector('button')
+                // Locate the delete button.
+                let btn = clone.querySelector('button')
                 btn.onclick = (e) => {
 
                     // Enabled delete when the image is clicked on, if the user confirms the delete action. 
-                    let confirmed = confirm(`Are you sure you want to remove it?`)
+                    let confirmed = confirm(`Are you sure you want to delete '${element.name}'?`)
                     if (confirmed) {
+                        // Request the backend to delete the image.
                         this.deleteImage(element.id)
                     }
                 }
 
-                let metaDiv = imgFromTemplate.querySelector('.meta')
+                let metaDiv = clone.querySelector('.meta')
                 metaDiv.innerHTML += `<b>Created</b>: ${new Date(element.created).toLocaleString()}<br>`
                 metaDiv.innerHTML += `<b>User</b>: ${element.user}<br>`
                 metaDiv.innerHTML += `<b>Filename</b>: ${element.name}<br>`
@@ -83,10 +92,14 @@ class ImageUploader {
                 metaDiv.innerHTML += `<b>Title</b>: ${element.title}<br>`
                 metaDiv.innerHTML += `<b>Description</b>:<br> ${element.description.replaceAll("\n", "<br>")}<br>`
 
-                gallery.appendChild(imgFromTemplate)
+                gallery.appendChild(clone)
             });
 
         } catch (error) {
+            let status = (response ===null) ? "Unreachable" : `${response.status}:\n${error}`
+            if( (response ===null) && confirm(`Failed to connect to backend (${status})\nDo you have the ImageStore backend running locally?\nIf not, click Ok to get the code at GitHub.`)) {
+                location.href = 'https://github.com/RonniKahalani/ImageStore'
+            }
             console.log(error)
         }
     }

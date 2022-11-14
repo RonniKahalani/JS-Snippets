@@ -1,11 +1,6 @@
 'use strict'
 
 /**
- * Used to hold cached versions of used HTML templates.
- */
-var htmlTemplateCache = new Map()
-
-/**
  * Route template constants.
  */
 const ROUTE_TEMPLATE_KEY_HOME = 'home'
@@ -23,8 +18,10 @@ const ROUTE_LOGIN = '/login'
 const ROUTE_LOGOUT = '/logout'
 const ROUTE_ADMIN = '/admin'
 
+const VIEW_ELEMENT_ID = "#view"
+
 /**
- * Defines the routing templates used.
+ * Defines the routing templates used and their respective render functions/actions.
  */
 template(ROUTE_TEMPLATE_KEY_HOME, home)
 template(ROUTE_TEMPLATE_KEY_ABOUT, about)
@@ -42,7 +39,7 @@ route(ROUTE_LOGOUT, ROUTE_TEMPLATE_KEY_LOGOUT);
 route(ROUTE_ADMIN, ROUTE_TEMPLATE_KEY_ADMIN);
 
 /**
- * Clones an embedded HTML template, from the HTML file, via an id.
+ * Clones an embedded HTML template, from the index.html file, via an id.
  */
 function cloneHtmlTemplate(id) {
     let div = document.createElement('div');
@@ -56,7 +53,7 @@ function cloneHtmlTemplate(id) {
  * Home route action.
  */
 function home() {
-    $('#view').html(cloneHtmlTemplate('template-home'));
+    $(VIEW_ELEMENT_ID).html( cloneHtmlTemplate('template-home'));
     imageUploader.updateGallery()
 }
 
@@ -64,7 +61,7 @@ function home() {
  * About route action.
  */
 function about() {
-    $('#view').html( cloneHtmlTemplate('template-about'));
+    $(VIEW_ELEMENT_ID).html( cloneHtmlTemplate('template-about'));
 };
 
 /**
@@ -72,7 +69,7 @@ function about() {
  */
 function login() {
 /*
-    // jQuery sample
+    // jQuery example
     let username = $('#username').val()
     let password = $('#password').val()
 */
@@ -102,9 +99,9 @@ function logout() {
 function admin() {
 
     if (isLoggedIn()) {
-        $('#view').html(cloneHtmlTemplate('template-upload'));
+        $(VIEW_ELEMENT_ID).html( cloneHtmlTemplate('template-upload'));
 
     } else {
-        $('#view').html(`<h1>You're not logged in, which is required for this page.</h1>`);
+        $(VIEW_ELEMENT_ID).html(`<h1>You're not logged in, which is required for this page.</h1>`);
     }
 }
