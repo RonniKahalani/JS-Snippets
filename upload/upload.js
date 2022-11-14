@@ -81,7 +81,7 @@ class ImageUploader {
                 metaDiv.innerHTML += `<b>Original size</b>: ${element.size} bytes<br>`
                 metaDiv.innerHTML += `<b>Current size</b>: ${element.image.length} bytes<br>`
                 metaDiv.innerHTML += `<b>Title</b>: ${element.title}<br>`
-                metaDiv.innerHTML += `<b>Description</b>: ${element.description}<br>`
+                metaDiv.innerHTML += `<b>Description</b>:<br> ${element.description.replaceAll("\n", "<br>")}<br>`
 
                 gallery.appendChild(imgFromTemplate)
             });
