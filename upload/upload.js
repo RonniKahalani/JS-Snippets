@@ -122,6 +122,8 @@ class ImageUploader {
     async upload() {
 
         for (let index = 0; index < this.selectedFiles.length; index++) {
+
+            
             let file = this.selectedFiles[index]
             let data = await this.loadFile(file);
             console.log(`Sending: ${file.name}...`)
