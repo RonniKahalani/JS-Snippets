@@ -78,8 +78,8 @@ class ImageUploader {
                 metaDiv.innerHTML += `<b>Created</b>: ${new Date(element.created).toLocaleString()}<br>`
                 metaDiv.innerHTML += `<b>User</b>: ${element.user}<br>`
                 metaDiv.innerHTML += `<b>Filename</b>: ${element.name}<br>`
-                metaDiv.innerHTML += `<b>Original size</b>: ${element.size} bytes<br>`
-                metaDiv.innerHTML += `<b>Current size</b>: ${element.image.length} bytes<br>`
+                metaDiv.innerHTML += `<b>Original size</b>: ${element.size.toLocaleString()} bytes<br>`
+                metaDiv.innerHTML += `<b>Current size</b>: ${element.image.length.toLocaleString()} bytes<br>`
                 metaDiv.innerHTML += `<b>Title</b>: ${element.title}<br>`
                 metaDiv.innerHTML += `<b>Description</b>:<br> ${element.description.replaceAll("\n", "<br>")}<br>`
 
