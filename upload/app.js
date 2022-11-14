@@ -71,8 +71,14 @@ function about() {
  * Login route action.
  */
 function login() {
+/*
+    // jQuery sample
     let username = $('#username').val()
     let password = $('#password').val()
+*/
+    let username = document.getElementById('username').value 
+    let password = document.getElementById('password').value
+    
     let roles = ['Admin', 'Developer', 'User']
 
     createUserSession(username, btoa(password), roles)
