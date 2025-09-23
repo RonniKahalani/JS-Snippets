@@ -139,6 +139,7 @@ class ImageUploader {
             
             let file = this.selectedFiles[index]
             let data = await this.loadFile(file);
+            console.log('My data:' + data);
             console.log(`Sending: ${file.name}...`)
 
             let postData = {
