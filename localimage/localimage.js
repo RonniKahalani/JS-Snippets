@@ -59,16 +59,12 @@ function updateFileInfo(file, data) {
 
     const fileSize = file.size;
     const dataSize = data.length;
-
-    elemFileSize.innerHTML = fileSize;
-
     const diff = dataSize - fileSize;
 
+    elemFileSize.innerHTML = fileSize;
     elemFileImageSizeDiff.innerHTML = diff;
     elemFileName.innerHTML = file.name;
-
     elemImageText.innerHTML = data;
     elemImageTextSize.innerHTML = dataSize;
-    elemImageTag.src = data
-
+    elemImageTag.src = data;
 }
