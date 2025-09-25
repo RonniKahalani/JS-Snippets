@@ -1,12 +1,12 @@
 const MB_1 = 1024 * 1024; // 1 MB in bytes
 const MAX_UPLOAD_FILE_SIZE = MB_1;
 
-const imageTag = document.querySelector("#image-tag");
-const imageText = document.querySelector("#image-text");
-const imageTextSize = document.querySelector("#image-text-size");
-const fileImageSizeDiff = document.querySelector("#file-image-size-diff");
-const fileSize = document.querySelector("#file-size");
-const fileName = document.querySelector("#file-name");
+const elemImageTag = document.querySelector("#image-tag");
+const elemImageText = document.querySelector("#image-text");
+const elemImageTextSize = document.querySelector("#image-text-size");
+const elemFileImageSizeDiff = document.querySelector("#file-image-size-diff");
+const elemFileSize = document.querySelector("#file-size");
+const elemFileName = document.querySelector("#file-name");
 const btnUpload = document.querySelector("#btn-upload");
 
 btnUpload.onchange = (ev) => setFiles(ev.target.files);
@@ -56,12 +56,19 @@ async function setFiles(selectedFiles) {
 }
 
 function updateFileInfo(file, data) {
-    fileSize.innerHTML = file.size;
-    fileImageSizeDiff.innerHTML = data.length - file.size;
-    fileName.innerHTML = file.name;
 
-    imageText.innerHTML = data;
-    imageTextSize.innerHTML = data.length;
-    imageTag.src = data
+    const fileSize = file.size;
+    const dataSize = data.length;
+
+    elemFileSize.innerHTML = fileSize;
+
+    const diff = dataSize - fileSize;
+
+    elemFileImageSizeDiff.innerHTML = diff;
+    elemFileName.innerHTML = file.name;
+
+    elemImageText.innerHTML = data;
+    elemImageTextSize.innerHTML = dataSize;
+    elemImageTag.src = data
 
 }

@@ -1,3 +1,7 @@
 #image-text {
     overflow-wrap: anywhere;
 }
+
+label {
+    font-weight: bold;
+}
