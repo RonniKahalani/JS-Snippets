@@ -9,7 +9,7 @@ class ImageUploader {
      * Default constructor.
      */
     constructor() {
-        this.url = 'http://localhost:8080/api/v1/image/'
+        this.url = 'http://localhost:8080/api/v1/image'
         this.selectedFiles = []
     }
 
@@ -98,7 +98,7 @@ class ImageUploader {
         } catch (error) {
             let status = (response ===null) ? "Unreachable" : `${response.status}:\n${error}`
             if( (response ===null) && confirm(`Failed to connect to backend (${status})\nDo you have the ImageStore backend running locally?\nIf not, click Ok to get the code at GitHub.`)) {
-                location.href = 'https://github.com/RonniKahalani/ImageStore'
+                //location.href = 'https://github.com/RonniKahalani/ImageStore'
             }
             console.log(error)
         }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location</title>
+    <title>Local Image File</title>
 
     <link media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,27 +20,78 @@
 
     <div class="container">
 
-        <div class="row">
-            <input id="btn-upload" type="file" accept="image/*">
 
-            <label for="file-size">Original File Size</label>
-            <div id="file-size"></div>
+        <!-- Jumbotron -->
+        <div class="p-5 text-center bg-light">
+            <h1 class="mb-3">Local Image</h1>
+            <h4 class="mb-3">Loading local files on a browser page.</h4>
+            <a class="btn btn-primary" href="https://github.com/RonniKahalani/JS-Snippets/tree/master/localimage"
+                target="_blank" role="button">View Code</a>
+        </div>
+        <!-- Jumbotron -->
 
-            <label for="image-text-size">Image Text Size</label>
-            <div id="image-text-size"></div>
-            
-            <label for="file-image-size-diff">Size difference</label>
-            <div id="file-image-size-diff"></div>
+        <div class="row m-3">
 
-            <label for="file-name">File Name</label>
-            <div id="file-name"></div>
+            <div class="col-6">
 
-            <label for="image-tag">Image</label>
-            <img id="image-tag">
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="file-size">Original File Size</label>
+                    </div>
+                    <div class="col">
+                        <div id="file-size"></div>
+                    </div>
+                </div>
 
-            <label for="file-text">Base64 String</label>
-            <div id="image-text"></div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="image-text-size">Image Text Size</label>
+                    </div>
+                    <div class="col">
+                        <div id="image-text-size"></div>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="file-image-size-diff">Size difference</label>
+                    </div>
+                    <div class="col-sm">
+                        <div id="file-image-size-diff"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="file-name">File Name</label>
+                    </div>
+                    <div class="col">
+                        <div id="file-name"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">This snippet show how to load a local image file and present it on the page visually and
+                as a Base64 encoded string (whiich kan be saved as a string in a database, and directly set to an image
+                tag source (src attribute) without any decoding or alike.</div>
+
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <input class="btn btn-primary" id="btn-upload" type="file" accept="image/*">
+                </div>
+                <div class="col-4"></div>
+            </div>
+
+            <div class="row">
+                <label for="image-tag">Image</label>
+                <img id="image-tag">
+
+            </div>
+            <div class="row">
+                <label for="file-text">Base64 String</label>
+                <div id="image-text"></div>
+            </div>
         </div>
     </div>
 </body>
